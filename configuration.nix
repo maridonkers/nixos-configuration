@@ -26,6 +26,7 @@
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  # boot.loader.grub.extraConfig = "terminal_input_console terminal_output_console";
 
   networking.hostName = "sapientia"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -37,6 +38,11 @@
   networking.useDHCP = false;
   networking.interfaces.ens5.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
+
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
   virtualisation =  {
     docker = {
@@ -76,7 +82,10 @@
     btrfs-progs
     snapper
     htop
+    telnet
     tcpdump
+    nmap
+    kismet
     screen
     xorg.xhost
     keepassxc
@@ -172,6 +181,8 @@
   services.upower.enable = true;
   boot.kernelParams = [
     "workqueue.power_efficient=y"
+    # "quiet"
+    # "vga=current"  
   ];
 
   powerManagement = {

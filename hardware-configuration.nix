@@ -143,11 +143,11 @@
       options = [ "subvol=downloads" "noatime" "space_cache" "autodefrag" ];
     };
 
-  fileSystems."/var/lib/docker/btrfs" =
-    { device = "/tmp/nixos/var/lib/docker/btrfs";
-      fsType = "none";
-      options = [ "bind" ];
-    };
+  #fileSystems."/var/lib/docker/btrfs" =
+  #  { device = "/tmp/nixos/var/lib/docker/btrfs";
+  #    fsType = "none";
+  #    options = [ "bind" ];
+  #  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/99be5bc9-fac4-4386-83c0-63632edef9dc"; }
