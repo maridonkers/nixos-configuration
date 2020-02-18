@@ -107,18 +107,18 @@
     gwenview
     kate
     kmymoney
+    clementineUnfree
     mplayer
     mpv-with-scripts
-    cantata
     rawtherapee
     gimp-with-plugins
     git
     git-crypt
-    jdk11
-    openjfx11
-    clojure
     docker
     docker_compose
+    #jdk11
+    #openjfx11
+    #clojure
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -206,6 +206,114 @@
   users.users.mdo = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+  };
+
+  # Configure snapper for snapshots.
+  services.snapper.configs = {
+    "root" = {
+      subvolume = "/";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "home" = {
+      subvolume = "/home";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "music" = {
+      subvolume = "/mnt/data/music";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "media" = {
+      subvolume = "/mnt/data/media";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "pictures" = {
+      subvolume = "/mnt/data/pictures";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "videos" = {
+      subvolume = "/mnt/data/videos";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "mdo.mozilla" = {
+      subvolume = "/home/mdo/.mozilla";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
+    "mdo.thunderbird" = {
+      subvolume = "/home/mdo/.thunderbird";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
   };
 
   # This value determines the NixOS release with which your system is to be
