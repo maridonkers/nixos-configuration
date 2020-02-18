@@ -16,125 +16,131 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
       fsType = "btrfs";
-      options = [ "subvol=nixos" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=nixos" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/var" =
     { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
       fsType = "btrfs";
-      options = [ "subvol=nixos/var" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=nixos/var" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/tmp" =
     { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
       fsType = "btrfs";
-      options = [ "subvol=nixos/tmp" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=nixos/tmp" "noatime" "space_cache" "autodefrag" ];
     };
-
-  fileSystems."/mnt/data" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
-      fsType = "btrfs";
-      options = [ "default" "noatime" "space_cache" "autodefrag" ];
-    };
-
-  boot.initrd.luks.devices."cr2-data".device = "/dev/disk/by-uuid/75236c0e-cad4-43a7-986c-a5f82f68cf65";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/dc12fafa-47e3-4f7c-a6a4-f3c14e06b4ff";
       fsType = "ext4";
-      options = [ "default" "noatime" ];
+      options = [ "noatime" ];
+    };
+
+  # Encrypted partitions.
+  #
+  boot.initrd.luks.devices."cr1-home" = {
+      device = "/dev/disk/by-uuid/0184c496-d27d-4c70-88f6-d0b7aaed1e17";
+    };
+
+  boot.initrd.luks.devices."cr2-data" = {
+      device = "/dev/disk/by-uuid/75236c0e-cad4-43a7-986c-a5f82f68cf65";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/fe64ceec-6658-4c46-abbd-23dd9a623814";
+    { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
-      options = [ "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "noatime" "space_cache" "autodefrag" ];
     };
 
-  boot.initrd.luks.devices."cr1-home".device = "/dev/disk/by-uuid/0184c496-d27d-4c70-88f6-d0b7aaed1e17";
-
   fileSystems."/home/mdo/.cache" =
-    { device = "/dev/disk/by-uuid/fe64ceec-6658-4c46-abbd-23dd9a623814";
+    { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
-      options = [ "subvol=mdo/.cache" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=mdo/.cache" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/.m2" =
-    { device = "/dev/disk/by-uuid/fe64ceec-6658-4c46-abbd-23dd9a623814";
+    { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
-      options = [ "subvol=mdo/.m2" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=mdo/.m2" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/.mozilla" =
-    { device = "/dev/disk/by-uuid/fe64ceec-6658-4c46-abbd-23dd9a623814";
+    { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
-      options = [ "subvol=mdo/.mozilla" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=mdo/.mozilla" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/.thunderbird" =
-    { device = "/dev/disk/by-uuid/fe64ceec-6658-4c46-abbd-23dd9a623814";
+    { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
-      options = [ "subvol=mdo/.thunderbird" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=mdo/.thunderbird" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/OLD/.config" =
-    { device = "/dev/disk/by-uuid/fe64ceec-6658-4c46-abbd-23dd9a623814";
+    { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
-      options = [ "subvol=mdo/.config" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=mdo/.config" "noatime" "space_cache" "autodefrag" ];
+    };
+
+  fileSystems."/mnt/data" =
+    { device = "/dev/mapper/cr2-data";
+      fsType = "btrfs";
+      options = [ "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/Music" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=music" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=music" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/Pictures" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=pictures" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=pictures" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/ISO" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=iso" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=iso" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/android" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=android" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=android" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/Backups" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=backups" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=backups" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/Videos" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=videos" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=videos" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/src" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=src" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=src" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/Media" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=media" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=media" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/home/mdo/Downloads" =
-    { device = "/dev/disk/by-uuid/527773ff-0f65-4132-bd4a-4dbc623f2c7d";
+    { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
-      options = [ "subvol=downloads" "default" "noatime" "space_cache" "autodefrag" ];
+      options = [ "subvol=downloads" "noatime" "space_cache" "autodefrag" ];
     };
 
   fileSystems."/var/lib/docker/btrfs" =
