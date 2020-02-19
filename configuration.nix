@@ -270,6 +270,7 @@
     clementineUnfree
     mplayer
     mpv-with-scripts
+    kdeApplications.kdenlive 
     digikam
     krita
     rawtherapee
