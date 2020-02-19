@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # Root filesystem.
+  #
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
       fsType = "btrfs";
@@ -77,7 +79,7 @@
       options = [ "subvol=mdo/.thunderbird" "noatime" "space_cache" "autodefrag" ];
     };
 
-  fileSystems."/home/mdo/OLD/.config" =
+  fileSystems."/home/mdo/.config" =
     { device = "/dev/mapper/cr1-home";
       fsType = "btrfs";
       options = [ "subvol=mdo/.config" "noatime" "space_cache" "autodefrag" ];
@@ -142,12 +144,6 @@
       fsType = "btrfs";
       options = [ "subvol=downloads" "noatime" "space_cache" "autodefrag" ];
     };
-
-  #fileSystems."/var/lib/docker/btrfs" =
-  #  { device = "/tmp/nixos/var/lib/docker/btrfs";
-  #    fsType = "none";
-  #    options = [ "bind" ];
-  #  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/99be5bc9-fac4-4386-83c0-63632edef9dc"; }

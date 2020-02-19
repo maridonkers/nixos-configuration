@@ -288,6 +288,32 @@
         TIMELINE_LIMIT_YEARLY="0"
       '';
     };
+     "mdo.config" = {
+       subvolume = "/home/mdo/.config";
+       extraConfig = ''
+         ALLOW_USERS="mdo"
+         TIMELINE_CREATE="yes"
+         TIMELINE_CLEANUP="yes"
+         TIMELINE_LIMIT_HOURLY="12"
+         TIMELINE_LIMIT_DAILY="7"
+         TIMELINE_LIMIT_WEEKLY="4"
+         TIMELINE_LIMIT_MONTHLY="6"
+         TIMELINE_LIMIT_YEARLY="0"
+       '';
+    };
+    "mdo.m2" = {
+      subvolume = "/home/mdo/.m2";
+      extraConfig = ''
+        ALLOW_USERS="mdo"
+        TIMELINE_CREATE="yes"
+        TIMELINE_CLEANUP="yes"
+        TIMELINE_LIMIT_HOURLY="12"
+        TIMELINE_LIMIT_DAILY="7"
+        TIMELINE_LIMIT_WEEKLY="4"
+        TIMELINE_LIMIT_MONTHLY="6"
+        TIMELINE_LIMIT_YEARLY="0"
+      '';
+    };
     "mdo.mozilla" = {
       subvolume = "/home/mdo/.mozilla";
       extraConfig = ''
