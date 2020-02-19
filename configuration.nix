@@ -5,6 +5,8 @@
 # https://nixos.org/nixos/manual/index.html
 # https://nixos.org/nixos/options.html
 # https://nixos.wiki/wiki/Configuration_Collection
+#
+#
 
 { config, pkgs, ... }:
 
@@ -150,7 +152,7 @@
     [ { device = "/dev/disk/by-uuid/99be5bc9-fac4-4386-83c0-63632edef9dc"; }
     ];
 
-  # Collect nix store garbage and optimise daily.
+  # Collect nix store garbage and optimize daily.
   nix.gc.automatic = true;
   nix.optimise.automatic = true;
 
@@ -167,6 +169,13 @@
   networking.hostName = "sapientia"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -180,6 +189,11 @@
     package = pkgs.wireshark;
   };
 
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  
+  # Virtual machine host.
   virtualisation =  {
     docker = {
       enable = true;
@@ -190,10 +204,6 @@
 
     virtualbox.host.enable = true;
   };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n = {
@@ -252,17 +262,12 @@
     git-crypt
     docker
     docker_compose
-    #jdk11
-    #openjfx11
-    #clojure
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -276,12 +281,6 @@
 
   # Start ssh-agent as a systemd user service
   programs.ssh.startAgent = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -311,24 +310,13 @@
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
 
-  # Required for our screen-lock-on-suspend functionality
+  # Required for screen-lock-on-suspend functionality.
   services.logind.extraConfig = ''
     LidSwitchIgnoreInhibited=False
     HandleLidSwitch=suspend
     HoldoffTimeoutSec=10
   '';
       
-  # services.redshift = {
-  #   enable = true;
-  #   latitude = "51.4416";
-  #   longitude = "5.4697";
- 
-  #   temperature = {
-  #     day = 6500;
-  #     night = 2500;
-  #   };
-  # };
-
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -344,7 +332,8 @@
     extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
-  # Configure snapper for snapshots.
+  # Configure snapper for automated snapshots.
+  #
   services.snapper.configs = {
     "root" = {
       subvolume = "/";
