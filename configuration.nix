@@ -193,7 +193,9 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
-  # Virtual machine host.
+  # Docker host. The --iptables=false makes sure that Docker doesn't alter
+  # the firewall (as a default containers should no be accessible from outside).
+  #
   virtualisation =  {
     docker = {
       enable = true;
@@ -222,13 +224,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    microcodeIntel
     pkgs.acpi
+    smartmontools
+    hddtemp
     wget
     vim
     cryptsetup
     btrfs-progs
     snapper
     htop
+    openvpn
     telnet
     tcpdump
     nmap
@@ -236,32 +242,45 @@
     screen
     xorg.xhost
     hplipWithPlugin
+    gnupg
     keepassxc
     virtualboxWithExtpack
     texlive.combined.scheme-full
+    pandoc 
+    clamav
     redshift
     redshift-plasma-applet
     filezilla
+    p7zip
+    mutt
     thunderbird
     firefox
     chromium
     google-chrome
     xorg.xkill
+    xorg.xeyes
     emacs
     ag
     kdeApplications.okular
+    kdeApplications.krdc
+    kdeApplications.marble
     gwenview
     kate
     kmymoney
     clementineUnfree
     mplayer
     mpv-with-scripts
+    digikam
+    krita
     rawtherapee
     gimp-with-plugins
+    libreoffice
     git
     git-crypt
+    gitAndTools.gitRemoteGcrypt
     docker
     docker_compose
+    kdiff3-qt5
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -321,9 +340,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  services.emacs.enable = false;
-  services.emacs.install = true;
-
+  # Environment variables.
   environment.variables = { EDITOR = "vi"; QT_LOGGING_RULES = "*=false"; };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
