@@ -242,6 +242,7 @@
     screen
     xorg.xhost
     hplipWithPlugin
+    openssl
     gnupg
     keepassxc
     virtualboxWithExtpack
@@ -264,13 +265,13 @@
     kdeApplications.okular
     kdeApplications.krdc
     kdeApplications.marble
+    kdeApplications.kdenlive 
     gwenview
     kate
     kmymoney
     clementineUnfree
     mplayer
     mpv-with-scripts
-    kdeApplications.kdenlive 
     digikam
     krita
     rawtherapee
