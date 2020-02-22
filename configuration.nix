@@ -235,6 +235,7 @@
     snapper
     htop
     openvpn
+    wirelesstools
     telnet
     tcpdump
     nmap
