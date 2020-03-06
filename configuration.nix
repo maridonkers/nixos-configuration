@@ -189,6 +189,12 @@
     package = pkgs.wireshark;
   };
 
+  services.clamav = {
+    # daemon. enable = true;
+    updater.enable = true;
+  };
+
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -204,8 +210,11 @@
       extraOptions = "--iptables=false";
     };
 
-    virtualbox.host.enable = true;
+    libvirtd.enable = true;
   };
+
+  # Enable nested virtualization for your guests to run KVM hypervisors
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
 
   # Select internationalisation properties.
   i18n = {
@@ -228,11 +237,15 @@
     pkgs.acpi
     smartmontools
     hddtemp
+    file
     wget
     vim
     cryptsetup
     btrfs-progs
     snapper
+    clamav
+    yara
+    lynis
     htop
     openvpn
     wirelesstools
@@ -242,23 +255,25 @@
     kismet
     screen
     xorg.xhost
-    hplipWithPlugin
     openssl
     gnupg
     keepassxc
-    virtualboxWithExtpack
+    virtmanager
+    libguestfs
     texlive.combined.scheme-full
     pandoc 
-    clamav
     redshift
     redshift-plasma-applet
     filezilla
+    unzip
     p7zip
     mutt
     thunderbird
     firefox
     chromium
     google-chrome
+    brave
+    tor-browser-bundle-bin
     xorg.xkill
     xorg.xeyes
     emacs
@@ -305,7 +320,13 @@
   programs.ssh.startAgent = true;
 
   # Enable CUPS to print documents.
+  # https://nixos.wiki/wiki/Printing
+  # https://github.com/NixOS/nixpkgs/issues/37857
   services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ hplipWithPlugin ];
+
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = with pkgs; [ hplipWithPlugin ];
 
   # Enable sound.
   sound.enable = true;
@@ -349,7 +370,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd"
+                    "audio" "disk" "video" "networkmanager"
+                    "systemd-journal" "lp" "scanner" ]; # Enable ‘sudo’ for the user.
   };
 
   # Configure snapper for automated snapshots.
