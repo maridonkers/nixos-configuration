@@ -190,7 +190,7 @@
   };
 
   services.clamav = {
-    # daemon. enable = true;
+    # daemon.enable = true;
     updater.enable = true;
   };
 
@@ -319,12 +319,12 @@
   # Start ssh-agent as a systemd user service
   programs.ssh.startAgent = true;
 
-  # Enable CUPS to print documents.
+  # Printing. Enable CUPS to print documents.
   # https://nixos.wiki/wiki/Printing
-  # https://github.com/NixOS/nixpkgs/issues/37857
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplipWithPlugin ];
 
+  # Scanning with sane.
   hardware.sane.enable = true;
   hardware.sane.extraBackends = with pkgs; [ hplipWithPlugin ];
 
