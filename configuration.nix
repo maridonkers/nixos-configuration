@@ -234,7 +234,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     microcodeIntel
-    pkgs.acpi
+    acpi
     smartmontools
     hddtemp
     file
