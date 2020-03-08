@@ -286,6 +286,7 @@
     kate
     kmymoney
     clementineUnfree
+    libav
     mplayer
     mpv-with-scripts
     digikam
