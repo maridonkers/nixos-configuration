@@ -14,6 +14,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./env-configuration.nix
     ];
 
   # Root filesystem.
@@ -207,7 +208,7 @@
       enable = true;
       autoPrune.enable = true;
       storageDriver = "btrfs";
-      extraOptions = "--iptables=false";
+      #extraOptions = "--iptables=false";
     };
 
     libvirtd.enable = true;
@@ -239,14 +240,16 @@
     hddtemp
     file
     wget
+    binutils-unwrapped
+    tree
     vim
     cryptsetup
     btrfs-progs
     snapper
+    restic
     clamav
     yara
     lynis
-    htop
     openvpn
     wirelesstools
     telnet
@@ -273,11 +276,12 @@
     chromium
     google-chrome
     brave
-    tor-browser-bundle-bin
     xorg.xkill
     xorg.xeyes
     emacs
     ag
+    notmuch
+    offlineimap
     kdeApplications.okular
     kdeApplications.krdc
     kdeApplications.marble
@@ -285,6 +289,7 @@
     gwenview
     kate
     kmymoney
+    wcalc
     clementineUnfree
     libav
     mplayer
@@ -364,9 +369,6 @@
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
-  # Environment variables.
-  environment.variables = { EDITOR = "vi"; QT_LOGGING_RULES = "*=false"; };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdo = {
