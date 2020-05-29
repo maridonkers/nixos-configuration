@@ -30,6 +30,9 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   # boot.loader.grub.extraConfig = "terminal_input_console terminal_output_console";
+  
+  # Kernel parameters.
+  boot.kernelParams = [ "apci_osi=Linux" ];
 
   networking.hostName = "sapientia"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -104,7 +107,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     microcodeIntel
-    acpi
+    #acpi
+    #acpid
+    #pmtools
     smartmontools
     hddtemp
     file
@@ -120,7 +125,10 @@
     clamav
     yara
     lynis
+    usbutils
+    heimdall-gui
     openvpn
+    jwhois
     wirelesstools
     telnet
     tcpdump
@@ -135,6 +143,7 @@
     virtmanager
     libguestfs
     texlive.combined.scheme-full
+    ascii
     pandoc 
     redshift
     redshift-plasma-applet
@@ -161,7 +170,9 @@
     kdeApplications.kdenlive 
     gwenview
     kate
-    kmymoney
+    #kmymoney
+    hledger
+    hledger-ui
     wcalc
     clementineUnfree
     libav
@@ -175,11 +186,17 @@
     git
     git-crypt
     gitAndTools.gitRemoteGcrypt
+    mercurial
     docker
     docker_compose
     kdiff3-qt5
     jitsi
+    html-tidy
+    par
+    banner
   ];
+
+  services.fwupd.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -230,6 +247,9 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
 
+  # https://nixos.wiki/wiki/Android
+  programs.adb.enable = true;
+
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
 
@@ -241,8 +261,10 @@
   '';
       
   # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver = {
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+  };
 
   # https://nixos.wiki/wiki/Fonts
   fonts.fonts = with pkgs; [
@@ -262,7 +284,8 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd"
                     "audio" "disk" "video" "networkmanager"
-                    "systemd-journal" "lp" "scanner" ]; # Enable ‘sudo’ for the user.
+                    "systemd-journal" "lp" "scanner" "adbusers" ];
+    # Enable ‘sudo’ for the user.
   };
 
   # Configure snapper for automated snapshots.

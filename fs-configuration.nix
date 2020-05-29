@@ -97,6 +97,12 @@
       options = [ "subvol=iso" "noatime" "space_cache" "autodefrag" ];
     };
 
+  fileSystems."/home/mdo/VirtualMachines" =
+    { device = "/dev/mapper/cr2-data";
+      fsType = "btrfs";
+      options = [ "subvol=virtualmachines" "noatime" "space_cache" "autodefrag" ];
+    };
+
   fileSystems."/home/mdo/android" =
     { device = "/dev/mapper/cr2-data";
       fsType = "btrfs";
