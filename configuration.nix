@@ -28,7 +28,7 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/disk/by-id/ata-WDC_WD5000BEKT-60KA9T0_WD-WXG1AA0N9929"; # or "nodev" for efi only
   # boot.loader.grub.extraConfig = "terminal_input_console terminal_output_console";
   
   # Kernel parameters.
@@ -74,7 +74,7 @@
     docker = {
       enable = true;
       autoPrune.enable = true;
-      storageDriver = "btrfs";
+      storageDriver = "overlay2";
       #extraOptions = "--iptables=false";
     };
 
@@ -116,8 +116,10 @@
     wget
     binutils-unwrapped
     tree
+    pkg-config
     vim
     cryptsetup
+    e2fsprogs
     btrfs-progs
     rmlint
     snapper
@@ -140,6 +142,7 @@
     openssl
     gnupg
     keepassxc
+    lsof
     virtmanager
     libguestfs
     texlive.combined.scheme-full
@@ -160,18 +163,21 @@
     brave
     xorg.xkill
     xorg.xeyes
+    pinentry
+    kwalletcli
     emacs
-    ag
+    silver-searcher
     notmuch
     offlineimap
+    kdeApplications.kgpg
     kdeApplications.okular
     kdeApplications.krdc
     kdeApplications.marble
     kdeApplications.kdenlive 
     gwenview
     kate
-    #kmymoney
     hledger
+    hledger-web
     hledger-ui
     wcalc
     clementineUnfree
@@ -179,9 +185,10 @@
     mplayer
     mpv-with-scripts
     digikam
-    krita
+    #krita
     rawtherapee
     gimp-with-plugins
+    graphviz
     libreoffice
     git
     git-crypt
@@ -194,6 +201,7 @@
     html-tidy
     par
     banner
+    xsane
   ];
 
   services.fwupd.enable = true;
@@ -215,6 +223,9 @@
 
   # Start ssh-agent as a systemd user service
   programs.ssh.startAgent = true;
+
+  # Pinentry.
+  programs.gnupg.agent.enable = true;
 
   # Printing. Enable CUPS to print documents.
   # https://nixos.wiki/wiki/Printing
@@ -282,145 +293,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd"
+    extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" "kvm"
                     "audio" "disk" "video" "networkmanager"
                     "systemd-journal" "lp" "scanner" "adbusers" ];
     # Enable ‘sudo’ for the user.
-  };
-
-  # Configure snapper for automated snapshots.
-  #
-  services.snapper.configs = {
-    "root" = {
-      subvolume = "/";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "home" = {
-      subvolume = "/home";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "music" = {
-      subvolume = "/mnt/data/music";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "media" = {
-      subvolume = "/mnt/data/media";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "pictures" = {
-      subvolume = "/mnt/data/pictures";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "videos" = {
-      subvolume = "/mnt/data/videos";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-     "mdo.config" = {
-       subvolume = "/home/mdo/.config";
-       extraConfig = ''
-         ALLOW_USERS="mdo"
-         TIMELINE_CREATE="yes"
-         TIMELINE_CLEANUP="yes"
-         TIMELINE_LIMIT_HOURLY="12"
-         TIMELINE_LIMIT_DAILY="7"
-         TIMELINE_LIMIT_WEEKLY="4"
-         TIMELINE_LIMIT_MONTHLY="6"
-         TIMELINE_LIMIT_YEARLY="0"
-       '';
-    };
-    "mdo.m2" = {
-      subvolume = "/home/mdo/.m2";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "mdo.mozilla" = {
-      subvolume = "/home/mdo/.mozilla";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
-    "mdo.thunderbird" = {
-      subvolume = "/home/mdo/.thunderbird";
-      extraConfig = ''
-        ALLOW_USERS="mdo"
-        TIMELINE_CREATE="yes"
-        TIMELINE_CLEANUP="yes"
-        TIMELINE_LIMIT_HOURLY="12"
-        TIMELINE_LIMIT_DAILY="7"
-        TIMELINE_LIMIT_WEEKLY="4"
-        TIMELINE_LIMIT_MONTHLY="6"
-        TIMELINE_LIMIT_YEARLY="0"
-      '';
-    };
   };
 
   # This value determines the NixOS release with which your system is to be

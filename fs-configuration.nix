@@ -4,22 +4,22 @@
   # Root filesystem.
   #
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
-      fsType = "btrfs";
-      options = [ "subvol=nixos" "noatime" "space_cache" "autodefrag" ];
+    { device = "/dev/disk/by-uuid/913b221c-44f1-430c-b7bc-0b01afb1e912";
+      fsType = "ext4";
+      options = [ "defaults" "noatime" ];
     };
 
-  fileSystems."/var" =
-    { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
-      fsType = "btrfs";
-      options = [ "subvol=nixos/volumes/var" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/var" =
+#    { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
+#      fsType = "btrfs";
+#      options = [ "subvol=nixos/volumes/var" "noatime" "space_cache" "autodefrag" ];
+#    };
 
-  fileSystems."/tmp" =
-    { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
-      fsType = "btrfs";
-      options = [ "subvol=nixos/volumes/tmp" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/tmp" =
+#    { device = "/dev/disk/by-uuid/9b21328e-e925-4bd9-9cb0-c37d4cb5bb32";
+#      fsType = "btrfs";
+#      options = [ "subvol=nixos/volumes/tmp" "noatime" "space_cache" "autodefrag" ];
+#    };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/dc12fafa-47e3-4f7c-a6a4-f3c14e06b4ff";
@@ -39,39 +39,39 @@
 
   fileSystems."/home" =
     { device = "/dev/mapper/cr1-home";
-      fsType = "btrfs";
-      options = [ "noatime" "space_cache" "autodefrag" ];
+      fsType = "ext4";
+      options = [ "defaults" "noatime" ];
     };
 
-  fileSystems."/home/mdo/.cache" =
-    { device = "/dev/mapper/cr1-home";
-      fsType = "btrfs";
-      options = [ "subvol=mdo/.cache" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/home/mdo/.cache" =
+#    { device = "/dev/mapper/cr1-home";
+#      fsType = "btrfs";
+#      options = [ "subvol=mdo/.cache" "noatime" "space_cache" "autodefrag" ];
+#    };
 
-  fileSystems."/home/mdo/.m2" =
-    { device = "/dev/mapper/cr1-home";
-      fsType = "btrfs";
-      options = [ "subvol=mdo/.m2" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/home/mdo/.m2" =
+#    { device = "/dev/mapper/cr1-home";
+#      fsType = "btrfs";
+#      options = [ "subvol=mdo/.m2" "noatime" "space_cache" "autodefrag" ];
+#    };
 
-  fileSystems."/home/mdo/.mozilla" =
-    { device = "/dev/mapper/cr1-home";
-      fsType = "btrfs";
-      options = [ "subvol=mdo/.mozilla" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/home/mdo/.mozilla" =
+#    { device = "/dev/mapper/cr1-home";
+#      fsType = "btrfs";
+#      options = [ "subvol=mdo/.mozilla" "noatime" "space_cache" "autodefrag" ];
+#    };
 
-  fileSystems."/home/mdo/.thunderbird" =
-    { device = "/dev/mapper/cr1-home";
-      fsType = "btrfs";
-      options = [ "subvol=mdo/.thunderbird" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/home/mdo/.thunderbird" =
+#    { device = "/dev/mapper/cr1-home";
+#      fsType = "btrfs";
+#      options = [ "subvol=mdo/.thunderbird" "noatime" "space_cache" "autodefrag" ];
+#    };
 
-  fileSystems."/home/mdo/.config" =
-    { device = "/dev/mapper/cr1-home";
-      fsType = "btrfs";
-      options = [ "subvol=mdo/.config" "noatime" "space_cache" "autodefrag" ];
-    };
+#  fileSystems."/home/mdo/.config" =
+#    { device = "/dev/mapper/cr1-home";
+#      fsType = "btrfs";
+#      options = [ "subvol=mdo/.config" "noatime" "space_cache" "autodefrag" ];
+#    };
 
   fileSystems."/mnt/data" =
     { device = "/dev/mapper/cr2-data";
