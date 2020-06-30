@@ -128,16 +128,20 @@
     yara
     lynis
     usbutils
+    beep
     heimdall-gui
     openvpn
-    jwhois
     wirelesstools
     telnet
     tcpdump
     nmap
     kismet
+    metasploit
     screen
+    tmux
     xorg.xhost
+    xorg.xmodmap
+    xorg.xev
     sshfs
     openssl
     gnupg
@@ -148,10 +152,19 @@
     texlive.combined.scheme-full
     ascii
     pandoc 
+#    haskellPackages.xmonad-contrib
+#    haskellPackages.xmonad-extras
+#    haskellPackages.xmonad
+#    dmenu
+#    gmrun
+#    xmobar
+#    trayer
     redshift
     redshift-plasma-applet
     filezilla
+    pcmanfm
     apktool
+    appimage-run
     unzip
     p7zip
     ark
@@ -161,14 +174,19 @@
     chromium
     google-chrome
     brave
+    torbrowser
     xorg.xkill
     xorg.xeyes
+    wmctrl
+    xorg.xdpyinfo
+    xorg.xwininfo
     pinentry
     kwalletcli
     emacs
     silver-searcher
     notmuch
     offlineimap
+    freetype
     kdeApplications.kgpg
     kdeApplications.okular
     kdeApplications.krdc
@@ -182,6 +200,7 @@
     wcalc
     clementineUnfree
     libav
+    cmus
     mplayer
     mpv-with-scripts
     digikam
@@ -189,6 +208,10 @@
     rawtherapee
     gimp-with-plugins
     graphviz
+    aspellDicts.nl
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
     libreoffice
     git
     git-crypt
@@ -271,10 +294,28 @@
     HoldoffTimeoutSec=10
   '';
       
-  # Enable the KDE Desktop Environment.
+  # Graphical environment.
   services.xserver = {
+    # Enable the KDE Desktop Environment.
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
+
+#    windowManager.xmonad = {
+#      enable = true;
+#      enableContribAndExtras = true;
+#      extraPackages = haskellPackages: [
+#        haskellPackages.xmonad-contrib
+#        haskellPackages.xmonad-extras
+#        haskellPackages.xmonad
+#      ];
+#    };
+#    displayManager.sddm.enable = true;
+#    displayManager.defaultSession = "none+xmonad";
+
+    #displayManager.sessionCommands = with pkgs; lib.mkAfter
+    #  ''
+    #  xmodmap /path/to/.Xmodmap
+    #  '';
   };
 
   # https://nixos.wiki/wiki/Fonts
