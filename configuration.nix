@@ -17,9 +17,17 @@
       ./env-configuration.nix
     ];
 
-  # Collect nix store garbage and optimize daily.
-  nix.gc.automatic = true;
-  nix.optimise.automatic = true;
+  # https://nixos.wiki/wiki/Storage_optimization
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  # nix.extraOptions = ''
+  #   min-free = ${toString (5 * 1024 * 1024 * 1024)} # 5 GB
+  #   max-free = ${toString (10* 1024 * 1024 * 1024)}
+  # '';
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -142,6 +150,13 @@
     xorg.xhost
     xorg.xmodmap
     xorg.xev
+    xorg.xmessage
+    killall
+    dmenu
+    xmobar
+    compton
+    trayer
+    volumeicon
     sshfs
     openssl
     gnupg
@@ -152,13 +167,6 @@
     texlive.combined.scheme-full
     ascii
     pandoc 
-#    haskellPackages.xmonad-contrib
-#    haskellPackages.xmonad-extras
-#    haskellPackages.xmonad
-#    dmenu
-#    gmrun
-#    xmobar
-#    trayer
     redshift
     redshift-plasma-applet
     filezilla
@@ -187,13 +195,16 @@
     notmuch
     offlineimap
     freetype
-    kdeApplications.kgpg
-    kdeApplications.okular
-    kdeApplications.krdc
-    kdeApplications.marble
-    kdeApplications.kdenlive 
-    gwenview
-    kate
+    mupdf
+    sxiv
+    leafpad
+    # kdeApplications.kgpg
+    # kdeApplications.okular
+    # kdeApplications.krdc
+    # kdeApplications.marble
+    # kdeApplications.kdenlive 
+    # gwenview
+    # kate
     hledger
     hledger-web
     hledger-ui
@@ -201,7 +212,7 @@
     clementineUnfree
     libav
     cmus
-    mplayer
+    # mplayer
     mpv-with-scripts
     digikam
     #krita
@@ -250,6 +261,16 @@
   # Pinentry.
   programs.gnupg.agent.enable = true;
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    extraConfig = '' 
+      set-option -g prefix C-z
+      unbind-key C-b
+      bind-key C-z send-prefix
+    '';
+  };
+
   # Printing. Enable CUPS to print documents.
   # https://nixos.wiki/wiki/Printing
   services.printing.enable = true;
@@ -297,20 +318,24 @@
   # Graphical environment.
   services.xserver = {
     # Enable the KDE Desktop Environment.
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
+    #displayManager.sddm.enable = true;
+    #desktopManager.plasma5.enable = true;
+  };
 
-#    windowManager.xmonad = {
-#      enable = true;
-#      enableContribAndExtras = true;
-#      extraPackages = haskellPackages: [
-#        haskellPackages.xmonad-contrib
-#        haskellPackages.xmonad-extras
-#        haskellPackages.xmonad
-#      ];
-#    };
-#    displayManager.sddm.enable = true;
-#    displayManager.defaultSession = "none+xmonad";
+
+  # XMonad tiling window manager.
+  services.xserver = {
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
+    displayManager.lightdm.enable = true;
+    displayManager.defaultSession = "none+xmonad";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
@@ -318,7 +343,7 @@
     #  '';
   };
 
-  # https://nixos.wiki/wiki/Fonts
+ # https://nixos.wiki/wiki/Fonts
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
