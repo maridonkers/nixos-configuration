@@ -153,10 +153,6 @@
     xorg.xmessage
     killall
     dmenu
-    xmobar
-    compton
-    trayer
-    volumeicon
     sshfs
     openssl
     gnupg
@@ -320,11 +316,8 @@
     # Enable the KDE Desktop Environment.
     #displayManager.sddm.enable = true;
     #desktopManager.plasma5.enable = true;
-  };
 
-
-  # XMonad tiling window manager.
-  services.xserver = {
+    # Enable xmonad tiling window manager.
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
