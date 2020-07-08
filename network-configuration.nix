@@ -6,7 +6,7 @@
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.wireless.networks = {
     "Ninlil" = {
-      psk = "FR$a;-SUDMR!EZ5%r8_r2AG]ur?Z2cy+G6-C";
+      psk = "secret;
     };
     #free.wifi = {};            # Public wireless network
   };
