@@ -134,8 +134,10 @@
     xorg.xmodmap
     xorg.xev
     xorg.xmessage
+    xscreensaver
+    xdotool
+    xmobar
     killall
-    dmenu
     sshfs
     openssl
     gnupg
@@ -146,8 +148,8 @@
     texlive.combined.scheme-full
     ascii
     pandoc 
-    redshift
-    redshift-plasma-applet
+    #redshift
+    #redshift-plasma-applet
     filezilla
     pcmanfm
     apktool
@@ -272,6 +274,13 @@
     driSupport32Bit = true;
     s3tcSupport = true;
   };
+
+
+  # Enable Redshift.
+  services.redshift = {
+    enable = true;
+  };
+  location.provider = "geoclue2";
 
   # Power saving settings.
   networking.networkmanager.wifi.powersave = true;
