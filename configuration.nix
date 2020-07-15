@@ -9,7 +9,8 @@
 
 { config, pkgs, ... }:
 
-{
+let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -43,6 +44,10 @@
   # Kernel parameters.
   boot.kernelParams = [ "apci_osi=Linux" ];
 
+  # Obelisk -- https://github.com/obsidiansystems/obelisk
+  nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
+  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark;
@@ -52,7 +57,6 @@
     # daemon.enable = true;
     updater.enable = true;
   };
-
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -95,7 +99,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # `nix search wget`
   environment.systemPackages = with pkgs; [
     microcodeIntel
     #acpi
@@ -121,8 +125,11 @@
     usbutils
     beep
     heimdall-gui
-    openvpn
+    # Packages from unstable because of the no network after resume from suspend bug.
+    #unstable.dhcpcd 
+    #unstable.wpa_supplicant
     wirelesstools
+    openvpn
     telnet
     tcpdump
     nmap
@@ -134,6 +141,7 @@
     xorg.xmodmap
     xorg.xev
     xorg.xmessage
+    scrot
     xscreensaver
     xdotool
     xmobar
@@ -150,6 +158,7 @@
     pandoc 
     #redshift
     #redshift-plasma-applet
+    lftp
     filezilla
     pcmanfm
     apktool
@@ -275,10 +284,17 @@
     s3tcSupport = true;
   };
 
-
   # Enable Redshift.
   services.redshift = {
     enable = true;
+    brightness = {
+      day = "1";
+      night = "0.75";
+    };
+    temperature = {
+      day = 6500;
+      night = 3500;
+    };
   };
   location.provider = "geoclue2";
 
