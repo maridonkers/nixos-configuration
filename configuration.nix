@@ -17,13 +17,14 @@ in {
       ./fs-configuration.nix
       ./network-configuration.nix
       ./env-configuration.nix
+      ./cachix.nix
     ];
 
   # https://nixos.wiki/wiki/Storage_optimization
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 7d";
   };
 
   # nix.extraOptions = ''
@@ -44,7 +45,7 @@ in {
   # Kernel parameters.
   boot.kernelParams = [ "apci_osi=Linux" ];
 
-  # Obelisk -- https://github.com/obsidiansystems/obelisk
+  # Obelisk/Reflex -- https://github.com/obsidiansystems/obelisk
   nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
@@ -79,6 +80,9 @@ in {
   # Enable nested virtualization for your guests to run KVM hypervisors
   boot.extraModprobeConfig = "options kvm_intel nested=1";
 
+  # Font size.
+  fonts.fontconfig.dpi=96;
+
   # Select internationalisation properties.
   i18n = {
     #consoleFont = "Lat2-Terminus16";
@@ -101,6 +105,7 @@ in {
   # List packages installed in system profile. To search, run:
   # `nix search wget`
   environment.systemPackages = with pkgs; [
+    nix-prefetch-scripts
     microcodeIntel
     #acpi
     #acpid
@@ -110,7 +115,11 @@ in {
     file
     wget
     binutils-unwrapped
+    pstree
     tree
+    ccache
+    cachix
+    entr
     pkg-config
     vim
     cryptsetup
@@ -135,17 +144,24 @@ in {
     nmap
     kismet
     metasploit
+    speedtest-cli
     screen
     tmux
     xorg.xhost
     xorg.xmodmap
     xorg.xev
     xorg.xmessage
+    xorg.xkill
+    xorg.xeyes
+    wmctrl
+    xorg.xdpyinfo
+    xorg.xwininfo
     scrot
     xscreensaver
     xdotool
     xmobar
     killall
+    termonad-with-packages
     sshfs
     openssl
     gnupg
@@ -153,41 +169,37 @@ in {
     lsof
     virtmanager
     libguestfs
-    texlive.combined.scheme-full
     ascii
-    pandoc 
     #redshift
     #redshift-plasma-applet
     lftp
-    filezilla
-    pcmanfm
+    #filezilla
+    ranger
+    #pcmanfm
     apktool
     appimage-run
     unzip
     p7zip
     ark
-    mutt
-    thunderbird
-    firefox
-    chromium
-    google-chrome
-    brave
-    torbrowser
-    xorg.xkill
-    xorg.xeyes
-    wmctrl
-    xorg.xdpyinfo
-    xorg.xwininfo
+    #claws-mail
+    # thunderbird
+    # firefox
+    #chromium
+    #google-chrome
+    #brave
+    #torbrowser
     pinentry
     kwalletcli
-    emacs
-    silver-searcher
+    #texlive.combined.scheme-full
+    #pandoc 
+    #emacs
+    #silver-searcher
     notmuch
     offlineimap
     freetype
-    mupdf
-    sxiv
-    leafpad
+    # mupdf
+    # nomacs
+    #leafpad
     # kdeApplications.kgpg
     # kdeApplications.okular
     # kdeApplications.krdc
@@ -195,20 +207,20 @@ in {
     # kdeApplications.kdenlive 
     # gwenview
     # kate
-    hledger
-    hledger-web
+    #hledger
+    # hledger-web
     hledger-ui
-    wcalc
-    clementineUnfree
+    #wcalc
+    #clementineUnfree
     libav
     cmus
     # mplayer
     mpv-with-scripts
-    digikam
+    #digikam
     #krita
-    rawtherapee
-    gimp-with-plugins
-    graphviz
+    #rawtherapee
+    #gimp-with-plugins
+    #graphviz
     aspellDicts.nl
     aspellDicts.en
     aspellDicts.en-computers
@@ -274,7 +286,7 @@ in {
   sound.enable = true;
   hardware.pulseaudio = {
     enable = true;
-    # support32Bit = true;
+    support32Bit = true;
   };
 
   # OpenGL configuration.
@@ -310,8 +322,11 @@ in {
   programs.adb.enable = true;
 
   # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
+  # Compositor (supposedly fixes screen tearing).
+  # services.compton.enable = true;
+  
   # Required for screen-lock-on-suspend functionality.
   services.logind.extraConfig = ''
     LidSwitchIgnoreInhibited=False
@@ -335,6 +350,8 @@ in {
         haskellPackages.xmonad
       ];
     };
+    # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
+    #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
     displayManager.lightdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
 
@@ -360,10 +377,14 @@ in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" "kvm"
+    extraGroups = [ "wheel" "docker" "libvirtd" "kvm"
                     "audio" "disk" "video" "networkmanager"
                     "systemd-journal" "lp" "scanner" "adbusers" ];
-    # Enable ‘sudo’ for the user.
+  };
+
+  users.users.csp = {
+    isNormalUser = true;
+    extraGroups = [ "audio" "disk" "video" "networkmanager" ];
   };
 
   # This value determines the NixOS release with which your system is to be
@@ -372,4 +393,3 @@ in {
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
 }
-

@@ -1,3 +1,5 @@
 /network-configuration.nix
 /env-configuration.nix
 /result
+/generated/
+/previous-installation/
