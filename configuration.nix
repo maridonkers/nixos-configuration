@@ -118,7 +118,7 @@ in {
     pstree
     tree
     ccache
-    cachix
+    # cachix
     entr
     pkg-config
     vim
@@ -153,15 +153,15 @@ in {
     xorg.xmessage
     xorg.xkill
     xorg.xeyes
-    wmctrl
     xorg.xdpyinfo
     xorg.xwininfo
+    wmctrl
     scrot
     xscreensaver
     xdotool
     xmobar
     killall
-    termonad-with-packages
+    #termonad-with-packages
     sshfs
     openssl
     gnupg
@@ -189,7 +189,6 @@ in {
     #brave
     #torbrowser
     pinentry
-    kwalletcli
     #texlive.combined.scheme-full
     #pandoc 
     #emacs
@@ -200,6 +199,7 @@ in {
     # mupdf
     # nomacs
     #leafpad
+    # kwalletcli
     # kdeApplications.kgpg
     # kdeApplications.okular
     # kdeApplications.krdc
@@ -212,6 +212,7 @@ in {
     hledger-ui
     #wcalc
     #clementineUnfree
+    openh264
     libav
     cmus
     # mplayer
@@ -315,7 +316,8 @@ in {
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.layout = "us"; 
+  services.xserver.xkbVariant = "altgr-intl"; 
   services.xserver.xkbOptions = "eurosign:e";
 
   # https://nixos.wiki/wiki/Android
