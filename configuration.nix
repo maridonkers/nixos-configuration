@@ -368,6 +368,7 @@ in {
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    google-fonts
  #   liberation_ttf
  #   fira-code
  #   fira-code-symbols
