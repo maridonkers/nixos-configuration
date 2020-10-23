@@ -115,7 +115,7 @@ in {
     file
     wget
     binutils-unwrapped
-    toybox
+    # toybox (has iostat but it also overrides the tar command)
     pstree
     tree
     htop
