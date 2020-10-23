@@ -24,7 +24,7 @@ in {
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 7d";
+    options = "--delete-older-than 31d";
   };
 
   # nix.extraOptions = ''
@@ -115,13 +115,16 @@ in {
     file
     wget
     binutils-unwrapped
+    toybox
     pstree
     tree
+    htop
     ccache
     # cachix
     entr
     pkg-config
     vim
+    zile
     cryptsetup
     e2fsprogs
     btrfs-progs
@@ -155,6 +158,7 @@ in {
     xorg.xeyes
     xorg.xdpyinfo
     xorg.xwininfo
+    xclip
     wmctrl
     scrot
     xscreensaver
@@ -230,6 +234,7 @@ in {
     git
     git-crypt
     gitAndTools.gitRemoteGcrypt
+    gitAndTools.tig
     mercurial
     docker
     docker_compose
@@ -302,7 +307,7 @@ in {
     enable = true;
     brightness = {
       day = "1";
-      night = "0.75";
+      night = "0.90";
     };
     temperature = {
       day = 6500;
