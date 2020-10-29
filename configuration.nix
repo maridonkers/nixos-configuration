@@ -238,8 +238,6 @@ in {
     xscreensaver
     yara
     youtube-dl
-    zile
-    zile
   ];
 
   services.fwupd.enable = true;
