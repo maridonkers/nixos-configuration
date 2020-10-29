@@ -105,145 +105,141 @@ in {
   # List packages installed in system profile. To search, run:
   # `nix search wget`
   environment.systemPackages = with pkgs; [
-    nix-prefetch-scripts
-    microcodeIntel
-    #acpi
-    #acpid
-    #pmtools
-    smartmontools
-    hddtemp
-    file
-    wget
-    binutils-unwrapped
-    # toybox (has iostat but it also overrides the tar command)
-    pstree
-    tree
-    htop
-    ccache
-    # cachix
-    entr
-    pkg-config
-    vim
-    zile
-    cryptsetup
-    e2fsprogs
-    btrfs-progs
-    rmlint
-    snapper
-    restic
-    clamav
-    yara
-    lynis
-    usbutils
-    beep
-    heimdall-gui
-    # Packages from unstable because of the no network after resume from suspend bug.
-    #unstable.dhcpcd 
-    #unstable.wpa_supplicant
-    wirelesstools
-    openvpn
-    telnet
-    tcpdump
-    nmap
-    kismet
-    metasploit
-    speedtest-cli
-    screen
-    tmux
-    xorg.xhost
-    xorg.xmodmap
-    xorg.xev
-    xorg.xmessage
-    xorg.xkill
-    xorg.xeyes
-    xorg.xdpyinfo
-    xorg.xwininfo
-    xclip
-    wmctrl
-    scrot
-    xscreensaver
-    xdotool
-    xmobar
-    killall
-    #termonad-with-packages
-    sshfs
-    openssl
-    gnupg
-    keepassxc
-    lsof
-    virtmanager
-    libguestfs
-    ascii
-    #redshift
-    #redshift-plasma-applet
-    lftp
-    #filezilla
-    ranger
-    #pcmanfm
     apktool
     appimage-run
-    unzip
-    p7zip
     ark
-    #claws-mail
-    # thunderbird
-    # firefox
-    #chromium
-    #google-chrome
-    #brave
-    #torbrowser
-    pinentry
-    #texlive.combined.scheme-full
-    #pandoc 
-    #emacs
-    #silver-searcher
-    notmuch
-    offlineimap
-    freetype
-    # mupdf
-    # nomacs
-    #leafpad
-    # kwalletcli
-    # kdeApplications.kgpg
-    # kdeApplications.okular
-    # kdeApplications.krdc
-    # kdeApplications.marble
-    # kdeApplications.kdenlive 
-    # gwenview
-    # kate
-    #hledger
-    # hledger-web
-    hledger-ui
-    #wcalc
-    #clementineUnfree
-    openh264
-    libav
-    cmus
-    # mplayer
-    mpv-with-scripts
-    #digikam
-    #krita
-    #rawtherapee
-    #gimp-with-plugins
-    #graphviz
-    aspellDicts.nl
+    ascii
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
-    libreoffice
+    aspellDicts.nl
+    banner
+    beep
+    binutils-unwrapped
+    btrfs-progs
+    cabal-install
+    cabal2nix
+    cachix
+    ccache
+    chromium
+    clamav
+    clementineUnfree
+    cmus
+    cowsay
+    cryptsetup
+    #digikam
+    docker
+    docker_compose
+    e2fsprogs
+    emacs
+    entr
+    figlet
+    file
+    filezilla
+    firefox
+    fortune
+    freetype
+    ghc
+    ghcid
+    gimp-with-plugins
     git
     git-crypt
     gitAndTools.gitRemoteGcrypt
     gitAndTools.tig
-    mercurial
-    docker
-    docker_compose
-    kdiff3-qt5
-    jitsi
+    gnumake
+    gnupg
+    google-chrome
+    gqview
+    graphviz
+    gwenview
+    hddtemp
+    heimdall-gui
+    hledger
+    hledger-ui
+    hlint
     html-tidy
+    htop
+    jdk11
+    jitsi
+    kdiff3-qt5
+    keepassxc
+    killall
+    kismet
+    #krita
+    lftp
+    libav
+    libreoffice
+    lsof
+    lynis
+    mercurial
+    metasploit
+    microcodeIntel
+    mpv-with-scripts
+    mupdf
+    neovim
+    nix-prefetch-scripts
+    nmap
+    nomacs
+    notmuch
+    offlineimap
+    openh264
+    openssl
+    openvpn
+    opera
+    p7zip
+    pandoc
     par
-    banner
+    pcmanfm
+    pinentry
+    pkg-config
+    pstree
+    python3
+    ranger
+    rawtherapee
+    restic
+    rmlint
+    screen
+    scrot
+    silver-searcher
+    smartmontools
+    snapper
+    speedtest-cli
+    sshfs
+    stylish-haskell
+    tcpdump
+    telnet
+    texlive.combined.scheme-full
+    thunderbird
+    tmux
+    tor-browser-bundle-bin
+    tree
+    unzip
+    usbutils
+    vim
+    virtmanager
+    wcalc
+    wget
+    wirelesstools
+    wmctrl
+    wmctrl
+    xclip
+    xdotool
+    xmobar
+    #xmonad-with-packages
+    xorg.xdpyinfo
+    xorg.xev
+    xorg.xeyes
+    xorg.xhost
+    xorg.xkill
+    xorg.xmessage
+    xorg.xmodmap
+    xorg.xwininfo
     xsane
+    xscreensaver
+    yara
+    youtube-dl
+    zile
+    zile
   ];
 
   services.fwupd.enable = true;
@@ -299,7 +295,6 @@ in {
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
-    s3tcSupport = true;
   };
 
   # Enable Redshift.
