@@ -169,6 +169,7 @@ in {
     lftp
     libav
     libreoffice
+    lshw
     lsof
     lynis
     mercurial
@@ -189,6 +190,7 @@ in {
     p7zip
     pandoc
     par
+    pciutils
     pcmanfm
     pinentry
     pkg-config
