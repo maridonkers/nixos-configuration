@@ -43,7 +43,7 @@ in {
   # boot.loader.grub.extraConfig = "terminal_input_console terminal_output_console";
   
   # Kernel parameters.
-  boot.kernelParams = [ "apci_osi=Linux" ];
+  boot.kernelParams = [ "acpi_osi=Linux" ];
 
   # Obelisk/Reflex -- https://github.com/obsidiansystems/obelisk
   nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
@@ -192,7 +192,7 @@ in {
     par
     pciutils
     pcmanfm
-    pinentry
+    #pinentry
     pkg-config
     pstree
     python3
