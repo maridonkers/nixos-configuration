@@ -151,7 +151,6 @@ in {
     google-chrome
     gqview
     graphviz
-    gwenview
     hddtemp
     heimdall-gui
     hledger
@@ -161,7 +160,7 @@ in {
     htop
     jdk11
     jitsi
-    kdiff3-qt5
+    #kdiff3-qt5
     keepassxc
     killall
     kismet
