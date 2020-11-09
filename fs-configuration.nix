@@ -6,6 +6,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/8be69c44-b987-4eb8-a1b6-c67ed80c9512";
       fsType = "btrfs";
+      options = [ "noatime" "space_cache" ];
     };
 
   # Boot filesystem.
@@ -24,7 +25,7 @@
   fileSystems."/home" =
     { device = "/dev/mapper/cr-home";
       fsType = "btrfs";
-      options = [ "noatime" "space_cache" "autodefrag" ];
+      options = [ "noatime" "space_cache" ];
     };
 
   # Swap partition.

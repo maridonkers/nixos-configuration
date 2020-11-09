@@ -212,7 +212,7 @@ in {
     texlive.combined.scheme-full
     thunderbird
     tmux
-    tor-browser-bundle-bin
+    #tor-browser-bundle-bin # broken...
     tree
     unzip
     usbutils
