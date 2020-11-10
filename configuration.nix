@@ -120,6 +120,7 @@ in {
     cabal-install
     cabal2nix
     cachix
+    castnow
     ccache
     chromium
     clamav
@@ -133,6 +134,7 @@ in {
     e2fsprogs
     emacs
     entr
+    ffmpeg
     figlet
     file
     filezilla
@@ -176,7 +178,6 @@ in {
     microcodeIntel
     mpv-with-scripts
     mupdf
-    neovim
     nix-prefetch-scripts
     nmap
     nomacs
@@ -212,12 +213,13 @@ in {
     texlive.combined.scheme-full
     thunderbird
     tmux
-    #tor-browser-bundle-bin # broken...
+    #unstable.tor-browser-bundle-bin # stable is broken...
     tree
     unzip
     usbutils
     vim
     virtmanager
+    vlc
     wcalc
     wget
     wirelesstools
