@@ -214,7 +214,8 @@ in {
     texlive.combined.scheme-full
     thunderbird
     tmux
-    #unstable.tor-browser-bundle-bin # stable is broken...
+    # TODO Use workaround: nix-env -f https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz -iA tor-browser-bundle-bin
+    #tor-browser-bundle-bin # marked as broken in NixOS stable 20.09 (...)
     tree
     unzip
     usbutils
