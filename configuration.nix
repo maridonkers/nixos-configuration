@@ -107,6 +107,7 @@ in {
   environment.systemPackages = with pkgs; [
     apktool
     appimage-run
+    arandr
     ark
     ascii
     aspellDicts.en
@@ -186,7 +187,7 @@ in {
     openh264
     openssl
     openvpn
-    opera
+    unstable.opera
     p7zip
     pandoc
     par
@@ -219,6 +220,8 @@ in {
     usbutils
     vim
     virtmanager
+    vivaldi
+    vivaldi-ffmpeg-codecs
     vlc
     wcalc
     wget
