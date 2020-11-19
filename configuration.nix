@@ -129,6 +129,7 @@ in {
     cmus
     cowsay
     cryptsetup
+    darcs
     #digikam
     docker
     docker_compose
