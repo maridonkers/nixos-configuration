@@ -152,7 +152,8 @@ in {
     gitAndTools.tig
     gnumake
     gnupg
-    google-chrome
+    # TODO Google Chrome is broken in stable (2020-11-20).
+    unstable.google-chrome
     gqview
     graphviz
     hddtemp
