@@ -152,8 +152,6 @@ in {
     gitAndTools.tig
     gnumake
     gnupg
-    # TODO Google Chrome is broken in stable (2020-11-20).
-    unstable.google-chrome
     gqview
     graphviz
     hddtemp
@@ -189,7 +187,7 @@ in {
     openh264
     openssl
     openvpn
-    unstable.opera
+    opera
     p7zip
     pandoc
     par
@@ -210,6 +208,9 @@ in {
     snapper
     speedtest-cli
     sshfs
+    stack
+    # TODO stack2nix is marked as broken in stable 20.09 (...)
+    #stack2nix
     stylish-haskell
     tcpdump
     telnet
