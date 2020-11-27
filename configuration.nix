@@ -181,6 +181,7 @@ in {
     mupdf
     nix-prefetch-scripts
     nmap
+    nodejs
     nomacs
     notmuch
     offlineimap
