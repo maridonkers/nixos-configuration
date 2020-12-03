@@ -210,16 +210,13 @@ in {
     speedtest-cli
     sshfs
     stack
-    # TODO stack2nix is marked as broken in stable 20.09 (...)
-    #stack2nix
     stylish-haskell
     tcpdump
     telnet
     texlive.combined.scheme-full
     thunderbird
     tmux
-    # TODO Use workaround: nix-env -f https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz -iA tor-browser-bundle-bin
-    #tor-browser-bundle-bin # marked as broken in NixOS stable 20.09 (...)
+    tor-browser-bundle-bin
     tree
     unzip
     usbutils
@@ -241,6 +238,7 @@ in {
     xorg.xev
     xorg.xeyes
     xorg.xhost
+    xorg.xinit
     xorg.xkill
     xorg.xmessage
     xorg.xmodmap
