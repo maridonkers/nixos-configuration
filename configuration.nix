@@ -188,7 +188,6 @@ in {
     openh264
     openssl
     openvpn
-    opera
     p7zip
     pandoc
     par
@@ -222,8 +221,6 @@ in {
     usbutils
     vim
     virtmanager
-    vivaldi
-    vivaldi-ffmpeg-codecs
     vlc
     wcalc
     wget
@@ -319,7 +316,7 @@ in {
   location.provider = "geoclue2";
 
   # Power saving settings.
-  networking.networkmanager.wifi.powersave = true;
+  networking.networkmanager.wifi.powersave = false;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
