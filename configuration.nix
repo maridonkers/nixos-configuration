@@ -105,6 +105,7 @@ in {
   # List packages installed in system profile. To search, run:
   # `nix search wget`
   environment.systemPackages = with pkgs; [
+    android-file-transfer
     apktool
     appimage-run
     arandr
@@ -152,6 +153,7 @@ in {
     gitAndTools.tig
     gnumake
     gnupg
+    google-chrome
     gqview
     graphviz
     hddtemp
@@ -201,6 +203,7 @@ in {
     rawtherapee
     restic
     rmlint
+    sabnzbd
     screen
     scrot
     silver-searcher
@@ -210,6 +213,7 @@ in {
     sshfs
     stack
     stylish-haskell
+    subdl
     tcpdump
     telnet
     texlive.combined.scheme-full
