@@ -209,6 +209,7 @@ in {
     scrot
     silver-searcher
     smartmontools
+    smtube
     snapper
     speedtest-cli
     sshfs
