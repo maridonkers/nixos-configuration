@@ -181,6 +181,7 @@ in {
     microcodeIntel
     mpv-with-scripts
     mupdf
+    nix-index
     nix-prefetch-scripts
     nmap
     nodejs
