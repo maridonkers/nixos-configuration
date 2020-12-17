@@ -221,7 +221,6 @@ in {
     texlive.combined.scheme-full
     thunderbird
     tmux
-    tor-browser-bundle-bin
     tree
     unzip
     usbutils
@@ -233,6 +232,7 @@ in {
     wirelesstools
     wmctrl
     wmctrl
+    wpa_supplicant
     xclip
     xdotool
     xmobar
@@ -321,9 +321,6 @@ in {
   };
   location.provider = "geoclue2";
 
-  # Power saving settings.
-  networking.networkmanager.wifi.powersave = false;
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us"; 
@@ -391,13 +388,13 @@ in {
   users.users.mdo = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "libvirtd" "kvm"
-                    "audio" "disk" "video" "networkmanager"
+                    "audio" "disk" "video" "network"
                     "systemd-journal" "lp" "scanner" "adbusers" ];
   };
 
   users.users.csp = {
     isNormalUser = true;
-    extraGroups = [ "audio" "disk" "video" "networkmanager" ];
+    extraGroups = [ "audio" "disk" "video" ];
   };
 
   # This value determines the NixOS release with which your system is to be
