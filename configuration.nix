@@ -220,7 +220,7 @@ in {
     telnet
     texlive.combined.scheme-full
     thunderbird
-    tmux
+    #tmux  # TODO tmux server crashes after a while...
     tree
     unzip
     usbutils
