@@ -118,6 +118,7 @@ in {
     banner
     beep
     binutils-unwrapped
+    bpytop
     btrfs-progs
     cabal-install
     cabal2nix
@@ -179,6 +180,7 @@ in {
     mercurial
     metasploit
     microcodeIntel
+    mkvtoolnix
     mpv-with-scripts
     mupdf
     nix-index
