@@ -237,6 +237,7 @@ in {
     wpa_supplicant
     xclip
     xdotool
+    xlockmore
     xmobar
     #xmonad-with-packages
     xorg.xdpyinfo
@@ -249,7 +250,7 @@ in {
     xorg.xmodmap
     xorg.xwininfo
     xsane
-    xscreensaver
+    #xscreensaver
     yara
     youtube-dl
   ];
