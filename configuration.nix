@@ -211,7 +211,6 @@ in {
     scrot
     silver-searcher
     smartmontools
-    smtube
     snapper
     speedtest-cli
     sshfs
@@ -250,7 +249,6 @@ in {
     xorg.xmodmap
     xorg.xwininfo
     xsane
-    #xscreensaver
     yara
     youtube-dl
   ];
@@ -329,6 +327,10 @@ in {
   services.xserver.layout = "us"; 
   services.xserver.xkbVariant = "altgr-intl"; 
   services.xserver.xkbOptions = "eurosign:e";
+
+  # Legacy video driver for NVIDIA GeForce 335M (?) support.
+  # TODO Package is marked as broken in NixOS stable 20.09 (...)
+  #services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
 
   # https://nixos.wiki/wiki/Android
   programs.adb.enable = true;
