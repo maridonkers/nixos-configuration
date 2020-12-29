@@ -46,8 +46,19 @@ in {
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
   # Obelisk/Reflex -- https://github.com/obsidiansystems/obelisk
-  nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
-  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+  nix = {
+    binaryCaches = [
+      "https://cache.nixos.org/"
+      "https://qfpl.cachix.org"
+      "https://nixcache.reflex-frp.org"
+      "http://hydra.qfpl.io"
+    ];
+    binaryCachePublicKeys = [
+      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+      "qfpl.io:xME0cdnyFcOlMD1nwmn6VrkkGgDNLLpMXoMYl58bz5g="
+      "qfpl.cachix.org-1:JTTxGW07zLPAGglHlMbMC3kQpCd6eFRgbtnuorCogYw="
+    ];
+  };
 
   programs.wireshark = {
     enable = true;
@@ -251,6 +262,7 @@ in {
     xsane
     yara
     youtube-dl
+    zoom-us
   ];
 
   services.fwupd.enable = true;
