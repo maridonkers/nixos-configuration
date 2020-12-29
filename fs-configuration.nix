@@ -33,4 +33,8 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/99be5bc9-fac4-4386-83c0-63632edef9dc"; }
     ];
+
+
+  # Enable NTFS support.
+  boot.supportedFilesystems = [ "ntfs" ];
 }
