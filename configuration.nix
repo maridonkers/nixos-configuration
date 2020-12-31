@@ -384,6 +384,7 @@ in {
 
  # https://nixos.wiki/wiki/Fonts
   fonts.fonts = with pkgs; [
+    hack-font
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
