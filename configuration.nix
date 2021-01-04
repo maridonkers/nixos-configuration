@@ -199,6 +199,7 @@ in {
     openh264
     openssl
     openvpn
+    ormolu
     p7zip
     pandoc
     par
@@ -221,7 +222,6 @@ in {
     speedtest-cli
     sshfs
     stack
-    stylish-haskell
     subdl
     tcpdump
     telnet
