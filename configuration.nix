@@ -332,8 +332,9 @@ in {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us"; 
-  services.xserver.xkbVariant = "altgr-intl"; 
-  services.xserver.xkbOptions = "eurosign:e";
+  # services.xserver.xkbVariant = "altgr-intl"; 
+  #services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.xkbOptions = "compose:caps,shift:both_capslock";
 
   # Legacy video driver for NVIDIA GeForce 335M (?) support.
   # TODO Package is marked as broken in NixOS stable 20.09 (...)
