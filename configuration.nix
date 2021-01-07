@@ -334,7 +334,8 @@ in {
   services.xserver.layout = "us"; 
   # services.xserver.xkbVariant = "altgr-intl"; 
   #services.xserver.xkbOptions = "eurosign:e";
-  services.xserver.xkbOptions = "compose:caps,shift:both_capslock";
+  # services.xserver.xkbOptions = "compose:caps,shift:both_capslock";
+  services.xserver.xkbOptions = "compose:sclk";
 
   # Legacy video driver for NVIDIA GeForce 335M (?) support.
   # TODO Package is marked as broken in NixOS stable 20.09 (...)
