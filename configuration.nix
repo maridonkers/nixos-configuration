@@ -17,6 +17,7 @@ in {
       ./fs-configuration.nix
       ./network-configuration.nix
       ./env-configuration.nix
+      ./vpn-configuration.nix
       ./cachix.nix
     ];
 
@@ -170,6 +171,9 @@ in {
     hlint
     html-tidy
     htop
+    #haskellPackages.ib-api
+    ib-controller
+    ib-tws
     jdk11
     jitsi
     #kdiff3-qt5
@@ -198,7 +202,6 @@ in {
     offlineimap
     openh264
     openssl
-    openvpn
     ormolu
     p7zip
     pandoc

@@ -1,5 +1,6 @@
 /network-configuration.nix
 /env-configuration.nix
+/vpn-configuration.nix
 /result
 /generated/
 /previous-installation/
