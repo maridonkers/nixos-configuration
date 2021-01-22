@@ -171,10 +171,7 @@ in {
     hlint
     html-tidy
     htop
-    #haskellPackages.ib-api
-    ib-controller
-    ib-tws
-    jdk11
+    #jdk11
     jitsi
     #kdiff3-qt5
     keepassxc
