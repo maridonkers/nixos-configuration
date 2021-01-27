@@ -21,12 +21,13 @@ in {
       ./cachix.nix
     ];
 
+  # Disable automatic storage optimization (computer needs to be responsive at all times).
   # https://nixos.wiki/wiki/Storage_optimization
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 31d";
-  };
+  #nix.gc = {
+  #  automatic = true;
+  #  dates = "weekly";
+  #  options = "--delete-older-than 31d";
+  #};
 
   # nix.extraOptions = ''
   #   min-free = ${toString (5 * 1024 * 1024 * 1024)} # 5 GB
@@ -61,10 +62,11 @@ in {
     package = pkgs.wireshark;
   };
 
-  services.clamav = {
-    # daemon.enable = true;
-    updater.enable = true;
-  };
+  # Disable automatic refresh of ClamAV signatures database (do this manually).
+  #services.clamav = {
+  #  # daemon.enable = true;
+  #  updater.enable = true;
+  #};
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -130,6 +132,7 @@ in {
     cabal-install
     cabal2nix
     cachix
+    calibre
     castnow
     ccache
     chromium
