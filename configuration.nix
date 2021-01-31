@@ -145,6 +145,7 @@ in {
     #digikam
     docker
     docker_compose
+    dos2unix
     e2fsprogs
     emacs
     entr
