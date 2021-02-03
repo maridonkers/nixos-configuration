@@ -363,24 +363,31 @@ in {
       
   # Graphical environment.
   services.xserver = {
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    displayManager.defaultSession = "xfce";
+
     # Enable the KDE Desktop Environment.
     #displayManager.sddm.enable = true;
     #desktopManager.plasma5.enable = true;
 
     # Enable xmonad tiling window manager.
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
-      ];
-    };
+    # windowManager.xmonad = {
+    #   enable = true;
+    #   enableContribAndExtras = true;
+    #   extraPackages = haskellPackages: [
+    #     haskellPackages.xmonad-contrib
+    #     haskellPackages.xmonad-extras
+    #     haskellPackages.xmonad
+    #   ];
+    # };
+
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
     displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "none+xmonad";
+    #displayManager.defaultSession = "none+xmonad";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
