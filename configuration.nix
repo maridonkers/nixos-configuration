@@ -230,6 +230,7 @@ in {
     tcpdump
     telnet
     texlive.combined.scheme-full
+    xfce.thunar-volman
     thunderbird
     #tmux  # TODO tmux server crashes after a while...
     tree
