@@ -183,7 +183,7 @@ in {
     kismet
     #krita
     lftp
-    libav
+    # libav (this is marked as insecure?)
     libreoffice
     lshw
     lsof
