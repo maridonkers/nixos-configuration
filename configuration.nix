@@ -314,6 +314,9 @@ in {
     support32Bit = true;
   };
 
+  # Disable Bluetooth (my notebook doesn't have it).
+  hardware.bluetooth.enable = false;
+  
   # OpenGL configuration.
   hardware.opengl = {
     enable = true;
