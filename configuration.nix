@@ -165,7 +165,7 @@ in {
     gitAndTools.tig
     gnumake
     gnupg
-    google-chrome
+    #google-chrome
     gqview
     graphviz
     hddtemp
@@ -182,6 +182,7 @@ in {
     killall
     kismet
     #krita
+    ledger
     lftp
     # libav (this is marked as insecure?)
     libreoffice
@@ -223,14 +224,12 @@ in {
     silver-searcher
     smartmontools
     snapper
-    speedtest-cli
     sshfs
     stack
     subdl
     tcpdump
     telnet
     texlive.combined.scheme-full
-    xfce.thunar-volman
     thunderbird
     #tmux  # TODO tmux server crashes after a while...
     tree
@@ -262,7 +261,7 @@ in {
     xsane
     yara
     youtube-dl
-    zoom-us
+    #zoom-us # TODO build fails 2021-04-23
   ];
 
   services.fwupd.enable = true;
