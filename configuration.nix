@@ -138,7 +138,6 @@ in {
     chromium
     clamav
     clementineUnfree
-    cmus
     cowsay
     cryptsetup
     darcs
@@ -263,6 +262,11 @@ in {
     youtube-dl
     #zoom-us # TODO build fails 2021-04-23
   ];
+
+  #nixpkgs.config.permittedInsecurePackages = [
+  #    "ffmpeg-2.8.17"
+  #];
+
 
   services.fwupd.enable = true;
 
