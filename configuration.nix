@@ -327,17 +327,17 @@ in {
   };
 
   # Enable Redshift.
-  services.redshift = {
-    enable = true;
-    brightness = {
-      day = "1";
-      night = "0.90";
-    };
-    temperature = {
-      day = 6500;
-      night = 3500;
-    };
-  };
+  #services.redshift = {
+  #  enable = true;
+  #  brightness = {
+  #    day = "1";
+  #    night = "0.90";
+  #  };
+  #  temperature = {
+  #    day = 6500;
+  #    night = 3500;
+  #  };
+  #};
   location.provider = "geoclue2";
 
   # Enable the X11 windowing system.
@@ -370,15 +370,15 @@ in {
       
   # Graphical environment.
   services.xserver = {
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    displayManager.defaultSession = "xfce";
+    #desktopManager = {
+    #  xterm.enable = false;
+    #  xfce.enable = true;
+    #};
+    #displayManager.defaultSession = "xfce";
 
     # Enable the KDE Desktop Environment.
-    #displayManager.sddm.enable = true;
-    #desktopManager.plasma5.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
 
     # Enable xmonad tiling window manager.
     # windowManager.xmonad = {
@@ -393,7 +393,7 @@ in {
 
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
-    displayManager.lightdm.enable = true;
+    #displayManager.lightdm.enable = true;
     #displayManager.defaultSession = "none+xmonad";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
