@@ -165,8 +165,8 @@ in {
     gnumake
     gnupg
     #google-chrome
-    gqview
     graphviz
+    gwenview
     hddtemp
     heimdall-gui
     hledger
@@ -193,13 +193,14 @@ in {
     microcodeIntel
     mkvtoolnix
     mpv-with-scripts
-    mupdf
+    #mupdf
     nix-index
     nix-prefetch-scripts
     nmap
     nodejs
-    nomacs
+    #nomacs
     notmuch
+    okular
     offlineimap
     openh264
     openssl
@@ -208,7 +209,6 @@ in {
     pandoc
     par
     pciutils
-    pcmanfm
     #pinentry
     pkg-config
     pstree
