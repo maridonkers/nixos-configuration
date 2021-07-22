@@ -9,6 +9,7 @@
 
 { config, pkgs, ... }:
 
+# This (unstable) is only applicable when the unstable channel is installed (which is optional).
 let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
   imports =
@@ -83,6 +84,9 @@ in {
       #extraOptions = "--iptables=false";
     };
 
+    # To be able to run Android applications.
+    #anbox.enable = true; #  TODO anbox broken in 21.05
+
     libvirtd.enable = true;
   };
 
@@ -141,7 +145,7 @@ in {
     cowsay
     cryptsetup
     darcs
-    #digikam
+    digikam
     docker
     docker_compose
     dos2unix
@@ -176,6 +180,8 @@ in {
     htop
     #jdk11
     jitsi
+    kate
+    kdenlive
     #kdiff3-qt5
     keepassxc
     killall
@@ -207,6 +213,7 @@ in {
     ormolu
     p7zip
     pandoc
+    paperwork
     par
     pciutils
     #pinentry
