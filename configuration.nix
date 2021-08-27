@@ -139,13 +139,17 @@ in {
     calibre
     castnow
     ccache
+    cdrkit
     chromium
+    cifs-utils
     clamav
     clementineUnfree
     cowsay
     cryptsetup
     darcs
     digikam
+    #discord (use nix-env install under account for this)
+    dmidecode
     docker
     docker_compose
     dos2unix
@@ -171,7 +175,9 @@ in {
     #google-chrome
     graphviz
     gwenview
+    handbrake
     hddtemp
+    hdparm
     heimdall-gui
     hledger
     hledger-ui
@@ -179,7 +185,7 @@ in {
     html-tidy
     htop
     #jdk11
-    jitsi
+    #jitsi # (use nix-env install under account for this)
     kate
     kdenlive
     #kdiff3-qt5
@@ -193,6 +199,7 @@ in {
     libreoffice
     lshw
     lsof
+    lsscsi
     lynis
     mercurial
     metasploit
@@ -218,10 +225,13 @@ in {
     pciutils
     #pinentry
     pkg-config
+    pmutils
+    psmisc
     pstree
     python3
     ranger
     rawtherapee
+    rclone
     restic
     rmlint
     sabnzbd
@@ -233,12 +243,14 @@ in {
     sshfs
     stack
     subdl
+    subtitleeditor
     tcpdump
     telnet
     texlive.combined.scheme-full
     thunderbird
     #tmux  # TODO tmux server crashes after a while...
     tree
+    ums
     unzip
     usbutils
     vim
@@ -267,7 +279,7 @@ in {
     xsane
     yara
     youtube-dl
-    #zoom-us # TODO build fails 2021-04-23
+    #zoom-us # (use nix-env install under account for this)
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
@@ -436,6 +448,9 @@ in {
     isNormalUser = true;
     extraGroups = [ "audio" "disk" "video" ];
   };
+
+  # Trusted users (IHP)
+  nix.trustedUsers = [ "root" "mdo" ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
