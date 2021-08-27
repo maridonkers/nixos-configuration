@@ -156,6 +156,7 @@ in {
     e2fsprogs
     emacs
     entr
+    exif
     ffmpeg
     figlet
     file
@@ -184,6 +185,7 @@ in {
     hlint
     html-tidy
     htop
+    imagemagick
     #jdk11
     #jitsi # (use nix-env install under account for this)
     kate
