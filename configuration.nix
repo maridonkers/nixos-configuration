@@ -133,8 +133,8 @@ in {
     binutils-unwrapped
     bpytop
     btrfs-progs
-    cabal-install
-    cabal2nix
+    # cabal-install
+    # cabal2nix
     cachix
     calibre
     castnow
@@ -164,8 +164,8 @@ in {
     firefox
     fortune
     freetype
-    ghc
-    ghcid
+    # ghc
+    # ghcid
     gimp-with-plugins
     git
     git-crypt
@@ -243,7 +243,7 @@ in {
     smartmontools
     snapper
     sshfs
-    stack
+    # stack
     subdl
     subtitleeditor
     tcpdump
