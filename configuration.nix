@@ -10,6 +10,8 @@
 { config, pkgs, ... }:
 
 # This (unstable) is only applicable when the unstable channel is installed (which is optional).
+# https://discourse.nixos.org/t/install-nixpkgs-unstable-in-configuration-nix/6462/2
+# nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
   imports =
@@ -174,6 +176,7 @@ in {
     gnumake
     gnupg
     #google-chrome
+    grab-site
     graphviz
     gwenview
     handbrake
@@ -186,6 +189,7 @@ in {
     html-tidy
     htop
     imagemagick
+    irccloud
     #jdk11
     #jitsi # (use nix-env install under account for this)
     kate
