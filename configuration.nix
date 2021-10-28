@@ -50,7 +50,8 @@ in {
   # Kernel parameters.
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
-  # Obelisk/Reflex -- https://github.com/obsidiansystems/obelisk
+
+# Reflex binary cache -- https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md
   nix = {
     binaryCaches = [
       "https://nixcache.reflex-frp.org"
@@ -134,6 +135,7 @@ in {
     beep
     binutils-unwrapped
     bpytop
+    brave
     btrfs-progs
     # cabal-install
     # cabal2nix
@@ -165,6 +167,7 @@ in {
     filezilla
     firefox
     fortune
+    freecad
     freetype
     # ghc
     # ghcid
@@ -180,6 +183,9 @@ in {
     graphviz
     gwenview
     handbrake
+    hashcat
+    hashcat-utils
+    hcxtools
     hddtemp
     hdparm
     heimdall-gui
@@ -193,15 +199,18 @@ in {
     #jdk11
     #jitsi # (use nix-env install under account for this)
     kate
+    kcalc
     kdenlive
-    #kdiff3-qt5
+    kdiff3-qt5
     keepassxc
     killall
     kismet
     #krita
+    ktorrent
     ledger
     lftp
     # libav (this is marked as insecure?)
+    librecad
     libreoffice
     lshw
     lsof
@@ -211,6 +220,7 @@ in {
     metasploit
     microcodeIntel
     mkvtoolnix
+    mpack
     mpv-with-scripts
     #mupdf
     nix-index
@@ -221,13 +231,16 @@ in {
     notmuch
     okular
     offlineimap
+    opencascade
     openh264
+    openscad
     openssl
     ormolu
     p7zip
     pandoc
     paperwork
     par
+    pavucontrol
     pciutils
     #pinentry
     pkg-config
@@ -250,6 +263,7 @@ in {
     # stack
     subdl
     subtitleeditor
+    sysstat
     tcpdump
     telnet
     texlive.combined.scheme-full
