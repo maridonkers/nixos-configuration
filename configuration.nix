@@ -216,6 +216,7 @@ in {
     lsof
     lsscsi
     lynis
+    mdcat
     mercurial
     metasploit
     microcodeIntel
