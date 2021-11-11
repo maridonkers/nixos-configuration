@@ -20,7 +20,6 @@ ihp-new
 implicit-hie-0.1.1.0
 obelisk-command-0.9.0.1
 openjdk-11.0.9+11
-postgresql-11.12
 python3.8-PyChromecast-9.1.2
 retrie-1.0.0.0
 stack-2.7.1
