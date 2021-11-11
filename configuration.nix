@@ -160,6 +160,7 @@ in {
     e2fsprogs
     emacs
     entr
+    exa
     exif
     ffmpeg
     figlet

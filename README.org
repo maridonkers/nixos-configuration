@@ -1,1 +1,29 @@
 Also see the blog post: [[https://photonsphere.org/posts/2020-02-19-nixos-configuration.html][My NixOS configuration]].
+
+* mdo
+  The =nix-env -q= output is given below:
+  
+#+BEGIN_EXAMPLE
+brittany-0.13.1.1
+cabal-install-3.4.0.0
+cabal2nix-2.18.0
+catt-0.12.1
+dbeaver-21.0.5
+direnv-2.28.0
+discord-0.0.15
+ephemeral-7.1.0
+ghc-8.10.4
+go-1.16.8
+haskell-language-server-0.4.0.0
+hugs98-200609
+ihp-new
+implicit-hie-0.1.1.0
+obelisk-command-0.9.0.1
+openjdk-11.0.9+11
+postgresql-11.12
+python3.8-PyChromecast-9.1.2
+retrie-1.0.0.0
+stack-2.7.1
+tor-browser-bundle-bin-10.0.7
+yesod-bin-1.6.1
+#+END_EXAMPLE
