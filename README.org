@@ -23,6 +23,6 @@ openjdk-11.0.9+11
 python3.8-PyChromecast-9.1.2
 retrie-1.0.0.0
 stack-2.7.1
+stylish-haskell-0.12.2.0
 tor-browser-bundle-bin-10.0.7
-yesod-bin-1.6.1
 #+END_EXAMPLE
