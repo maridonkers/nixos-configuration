@@ -18,6 +18,8 @@ haskell-language-server-0.4.0.0
 hugs98-200609
 ihp-new
 implicit-hie-0.1.1.0
+leafpad-0.8.18.1
+nodejs-14.18.1
 obelisk-command-0.9.0.1
 openjdk-11.0.9+11
 python3.8-PyChromecast-9.1.2

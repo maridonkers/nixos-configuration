@@ -137,8 +137,6 @@ in {
     bpytop
     brave
     btrfs-progs
-    # cabal-install
-    # cabal2nix
     cachix
     calibre
     castnow
@@ -152,7 +150,6 @@ in {
     cryptsetup
     darcs
     digikam
-    #discord (use nix-env install under account for this)
     dmidecode
     docker
     docker_compose
@@ -170,8 +167,6 @@ in {
     fortune
     freecad
     freetype
-    # ghc
-    # ghcid
     gimp-with-plugins
     git
     git-crypt
@@ -224,12 +219,11 @@ in {
     mkvtoolnix
     mpack
     mpv-with-scripts
-    #mupdf
+    mupdf
     nix-index
     nix-prefetch-scripts
     nmap
-    nodejs
-    #nomacs
+    nomacs
     notmuch
     okular
     offlineimap
@@ -237,10 +231,10 @@ in {
     openh264
     openscad
     openssl
-    ormolu
     p7zip
     pandoc
     paperwork
+    pcmanfm
     par
     pavucontrol
     pciutils
@@ -262,7 +256,6 @@ in {
     smartmontools
     snapper
     sshfs
-    # stack
     subdl
     subtitleeditor
     sysstat
@@ -301,7 +294,6 @@ in {
     xsane
     yara
     youtube-dl
-    #zoom-us # (use nix-env install under account for this)
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
@@ -418,24 +410,24 @@ in {
     #displayManager.defaultSession = "xfce";
 
     # Enable the KDE Desktop Environment.
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
+    #displayManager.sddm.enable = true;
+    #desktopManager.plasma5.enable = true;
 
     # Enable xmonad tiling window manager.
-    # windowManager.xmonad = {
-    #   enable = true;
-    #   enableContribAndExtras = true;
-    #   extraPackages = haskellPackages: [
-    #     haskellPackages.xmonad-contrib
-    #     haskellPackages.xmonad-extras
-    #     haskellPackages.xmonad
-    #   ];
-    # };
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
 
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
-    #displayManager.lightdm.enable = true;
-    #displayManager.defaultSession = "none+xmonad";
+    displayManager.lightdm.enable = true;
+    displayManager.defaultSession = "none+xmonad";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
