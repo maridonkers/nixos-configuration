@@ -134,6 +134,7 @@ in {
     banner
     beep
     binutils-unwrapped
+    boxes
     bpytop
     brave
     btrfs-progs
