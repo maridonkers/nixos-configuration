@@ -19,6 +19,7 @@ in {
       ./hardware-configuration.nix
       ./fs-configuration.nix
       ./network-configuration.nix
+      ./network-samba-configuration.nix
       ./env-configuration.nix
       ./vpn-configuration.nix
       ./cachix.nix
@@ -97,7 +98,7 @@ in {
   boot.extraModprobeConfig = "options kvm_intel nested=1";
 
   # Font size.
-  fonts.fontconfig.dpi=96;
+  #fonts.fontconfig.dpi=96; # TODO obsolete since 21.11
 
   # Select internationalisation properties.
   i18n = {
@@ -137,7 +138,9 @@ in {
     boxes
     bpytop
     brave
+    btrfs-heatmap
     btrfs-progs
+    buttersink
     cachix
     calibre
     castnow
@@ -147,9 +150,11 @@ in {
     cifs-utils
     clamav
     clementineUnfree
+    compsize
     cowsay
     cryptsetup
     darcs
+    dduper
     digikam
     dmidecode
     docker
@@ -235,13 +240,14 @@ in {
     p7zip
     pandoc
     paperwork
-    pcmanfm
     par
     pavucontrol
     pciutils
+    pcmanfm
     #pinentry
     pkg-config
     pmutils
+    poppler_utils
     psmisc
     pstree
     python3

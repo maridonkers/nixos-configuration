@@ -1,4 +1,5 @@
 /network-configuration.nix
+/network-samba-configuration.nix
 /env-configuration.nix
 /vpn-configuration.nix
 /result
