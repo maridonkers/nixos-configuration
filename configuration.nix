@@ -49,6 +49,8 @@ in {
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
+  # https://github.com/NixOS/nixpkgs/issues/23926
+  # https://discourse.nixos.org/t/what-to-do-with-a-full-boot-partition/2049
   boot.loader.grub.configurationLimit = 3;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
