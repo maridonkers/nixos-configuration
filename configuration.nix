@@ -25,6 +25,14 @@ in {
       ./cachix.nix
     ];
 
+  # https://nixos.wiki/wiki/Flakes#Installing_flakes
+  nix = {
+    package = pkgs.nixUnstable; # or versioned attributes like nix_2_4
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+   };
+
   # Disable automatic storage optimization (computer needs to be responsive at all times).
   # https://nixos.wiki/wiki/Storage_optimization
   #nix.gc = {
@@ -41,6 +49,7 @@ in {
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
+  boot.loader.grub.configurationLimit = 3;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -51,8 +60,7 @@ in {
   # Kernel parameters.
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
-
-# Reflex binary cache -- https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md
+  # Reflex binary cache -- https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md
   nix = {
     binaryCaches = [
       "https://nixcache.reflex-frp.org"
