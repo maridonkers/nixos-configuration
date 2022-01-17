@@ -20,6 +20,7 @@ in {
       ./fs-configuration.nix
       ./network-configuration.nix
       ./network-samba-configuration.nix
+      ./user-configuration.nix
       ./env-configuration.nix
       ./vpn-configuration.nix
       ./cachix.nix
@@ -467,22 +468,6 @@ in {
  #   dina-font
  #   proggyfonts
   ];
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mdo = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "libvirtd" "kvm"
-                    "audio" "disk" "video" "network"
-                    "systemd-journal" "lp" "scanner" "adbusers" ];
-  };
-
-  users.users.csp = {
-    isNormalUser = true;
-    extraGroups = [ "audio" "disk" "video" ];
-  };
-
-  # Trusted users (IHP)
-  nix.trustedUsers = [ "root" "mdo" ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
