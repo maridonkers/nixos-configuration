@@ -279,6 +279,7 @@ in {
     sysstat
     tcpdump
     telnet
+    termonad
     texlive.combined.scheme-full
     thunderbird
     #tmux  # TODO tmux server crashes after a while...
