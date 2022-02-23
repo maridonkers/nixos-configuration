@@ -242,12 +242,13 @@ in {
     nmap
     nomacs
     notmuch
-    okular
     offlineimap
+    okular
     opencascade
     openh264
     openscad
     openssl
+    opera
     p7zip
     pandoc
     paperwork
