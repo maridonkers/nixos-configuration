@@ -291,6 +291,7 @@ in {
     vim
     virtmanager
     vlc
+    vivaldi
     wcalc
     wget
     wirelesstools
