@@ -176,6 +176,7 @@ in {
     entr
     exa
     exif
+    fd
     ffmpeg
     figlet
     file
@@ -184,6 +185,7 @@ in {
     fortune
     freecad
     freetype
+    fzf
     gimp-with-plugins
     git
     git-crypt
@@ -202,6 +204,7 @@ in {
     hddtemp
     hdparm
     heimdall-gui
+    highlight
     hledger
     hledger-ui
     hlint
@@ -274,6 +277,7 @@ in {
     silver-searcher
     smartmontools
     snapper
+    sourceHighlight
     sshfs
     subdl
     subtitleeditor
