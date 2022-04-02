@@ -287,7 +287,6 @@ in {
     termonad
     texlive.combined.scheme-full
     thunderbird
-    #tmux  # TODO tmux server crashes after a while...
     tree
     ums
     unzip
@@ -349,6 +348,8 @@ in {
   # Pinentry.
   programs.gnupg.agent.enable = true;
 
+      # https://gist.github.com/william8th/faf23d311fc842be698a1d80737d9631
+      # https://www.seanh.cc/2020/12/30/how-to-make-tmux's-windows-behave-like-browser-tabs/#:~:text=Key%20bindings&text=conf%20file%20to%20get%20browser,and%20C%2DS%2DTab%20in%20tmux.
   programs.tmux = {
     enable = true;
     clock24 = true;
