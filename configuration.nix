@@ -26,14 +26,6 @@ in {
       ./cachix.nix
     ];
 
-  # https://nixos.wiki/wiki/Flakes#Installing_flakes
-  nix = {
-    package = pkgs.nixUnstable; # or versioned attributes like nix_2_4
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-   };
-
   # Disable automatic storage optimization (computer needs to be responsive at all times).
   # https://nixos.wiki/wiki/Storage_optimization
   #nix.gc = {
@@ -224,6 +216,7 @@ in {
     #krita
     ktorrent
     ledger
+    lf
     lftp
     # libav (this is marked as insecure?)
     librecad
