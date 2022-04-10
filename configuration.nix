@@ -168,6 +168,7 @@ in {
     entr
     exa
     exif
+    exiv2
     fd
     ffmpeg
     figlet
@@ -268,6 +269,7 @@ in {
     screen
     scrot
     silver-searcher
+    slrn
     smartmontools
     snapper
     sourceHighlight
