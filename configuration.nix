@@ -157,6 +157,7 @@ in {
     cowsay
     cryptsetup
     darcs
+    ddrescue
     dduper
     digikam
     dmidecode
