@@ -159,6 +159,7 @@ in {
     darcs
     ddrescue
     dduper
+    dict
     digikam
     dmidecode
     docker
