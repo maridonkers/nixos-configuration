@@ -165,6 +165,7 @@ in {
     docker
     docker_compose
     dos2unix
+    dvdbackup
     e2fsprogs
     emacs
     entr
