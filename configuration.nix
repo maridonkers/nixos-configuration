@@ -275,6 +275,8 @@ in {
     silver-searcher
     slrn
     smartmontools
+    smem
+    smemstat
     snapper
     sourceHighlight
     sshfs
