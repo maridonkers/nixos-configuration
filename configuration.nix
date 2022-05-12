@@ -278,6 +278,7 @@ in {
     smem
     smemstat
     snapper
+    socat
     sourceHighlight
     sshfs
     subdl
