@@ -257,6 +257,7 @@ in {
     pavucontrol
     pciutils
     pcmanfm
+    pcre
     #pinentry
     pkg-config
     pmutils
