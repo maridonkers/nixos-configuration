@@ -364,6 +364,7 @@ in {
   # Printing. Enable CUPS to print documents.
   # https://nixos.wiki/wiki/Printing
   services.printing.enable = true;
+  services.printing.logLevel = "none";
   services.printing.drivers = with pkgs; [ hplipWithPlugin ];
 
   # Scanning with sane.
