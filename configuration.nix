@@ -100,9 +100,6 @@ in {
   # Enable nested virtualization for your guests to run KVM hypervisors
   boot.extraModprobeConfig = "options kvm_intel nested=1";
 
-  # Font size.
-  #fonts.fontconfig.dpi=96; # TODO obsolete since 21.11
-
   # Select internationalisation properties.
   i18n = {
     #consoleFont = "Lat2-Terminus16";
@@ -144,7 +141,7 @@ in {
     brave
     btrfs-heatmap
     btrfs-progs
-    buttersink
+    #buttersink
     cachix
     calibre
     castnow
@@ -159,12 +156,12 @@ in {
     cryptsetup
     darcs
     ddrescue
-    dduper
+    #dduper # TODO Broken in 22.05
     dict
     digikam
     dmidecode
     docker
-    docker_compose
+    docker-compose
     dos2unix
     dvdbackup
     e2fsprogs
@@ -214,7 +211,7 @@ in {
     kate
     kcalc
     kdenlive
-    kdiff3-qt5
+    kdiff3
     keepassxc
     killall
     kismet
@@ -283,10 +280,10 @@ in {
     sourceHighlight
     sshfs
     subdl
-    subtitleeditor
+    #subtitleeditor # TODO broken in 22.05
     sysstat
     tcpdump
-    telnet
+    inetutils
     termonad
     texlive.combined.scheme-full
     thunderbird
@@ -342,7 +339,8 @@ in {
 
     # Only pubkey auth
     passwordAuthentication = false;
-    challengeResponseAuthentication = false;
+    # challengeResponseAuthentication = false; # 22.05 renamed to services.openssh.kbdInteractiveAuthentication
+    kbdInteractiveAuthentication = false;
   };
 
   # Start ssh-agent as a systemd user service
@@ -412,7 +410,6 @@ in {
   services.xserver.xkbOptions = "compose:caps,shift:both_capslock,eurosign:e";
 
   # Legacy video driver for NVIDIA GeForce 335M (?) support.
-  # TODO Package is marked as broken in NixOS stable 20.09 (...)
   #services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
 
   # https://nixos.wiki/wiki/Android
