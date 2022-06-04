@@ -150,7 +150,7 @@ in {
     chromium
     cifs-utils
     clamav
-    clementineUnfree
+    clementine
     compsize
     cowsay
     cryptsetup
