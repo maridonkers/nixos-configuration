@@ -139,6 +139,7 @@ in {
     boxes
     bpytop
     brave
+    brotli
     btrfs-heatmap
     btrfs-progs
     #buttersink
