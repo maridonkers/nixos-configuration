@@ -146,12 +146,14 @@ in {
     cachix
     calibre
     castnow
+    cbonsai
     ccache
     cdrkit
     chromium
     cifs-utils
     clamav
     clementine
+    cmatrix
     compsize
     cowsay
     cryptsetup
@@ -209,6 +211,7 @@ in {
     irccloud
     #jdk11
     #jitsi # (use nix-env install under account for this)
+    jp2a
     kate
     kcalc
     kdenlive
@@ -236,6 +239,7 @@ in {
     mpack
     mpv-with-scripts
     mupdf
+    neofetch
     nix-index
     nix-prefetch-scripts
     nmap
@@ -262,6 +266,7 @@ in {
     poppler_utils
     psmisc
     pstree
+    pv
     python3
     ranger
     rawtherapee
