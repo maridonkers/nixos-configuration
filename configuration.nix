@@ -71,10 +71,10 @@ in {
   };
 
   # Disable automatic refresh of ClamAV signatures database (do this manually).
-  #services.clamav = {
-  #  # daemon.enable = true;
-  #  updater.enable = true;
-  #};
+  services.clamav = {
+    # daemon.enable = true;
+    updater.enable = true;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -151,7 +151,7 @@ in {
     cdrkit
     chromium
     cifs-utils
-    clamav
+    #clamav # This is installed automatically due to clamav service (see above).
     clementine
     cmatrix
     compsize
