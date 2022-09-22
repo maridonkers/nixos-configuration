@@ -242,7 +242,6 @@ in {
     neofetch
     nix-index
     nix-prefetch-scripts
-    niv
     nmap
     nomacs
     notmuch
