@@ -242,6 +242,7 @@ in {
     neofetch
     nix-index
     nix-prefetch-scripts
+    niv
     nmap
     nomacs
     notmuch
@@ -264,6 +265,7 @@ in {
     pkg-config
     pmutils
     poppler_utils
+    psensor
     psmisc
     pstree
     pv
