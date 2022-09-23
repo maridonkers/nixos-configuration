@@ -208,6 +208,7 @@ in {
     html-tidy
     htop
     imagemagick
+    ipfs
     irccloud
     #jdk11
     #jitsi # (use nix-env install under account for this)
