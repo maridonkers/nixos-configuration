@@ -304,6 +304,7 @@ in {
     vlc
     vivaldi
     wcalc
+    wf-recorder
     wget
     wirelesstools
     wmctrl
