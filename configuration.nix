@@ -174,6 +174,7 @@ in {
     exif
     exiv2
     fd
+    feh
     ffmpeg
     figlet
     file
