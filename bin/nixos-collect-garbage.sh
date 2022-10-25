@@ -1,6 +1,6 @@
 #!/bin/sh
 #
 
-PERIOD="7d"
+PERIOD="21d"
 
 nix-collect-garbage --delete-older-than ${PERIOD}
