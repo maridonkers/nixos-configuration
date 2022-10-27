@@ -365,9 +365,9 @@ in {
     enable = true;
     clock24 = true;
     extraConfig = '' 
-      set-option -g prefix C-z
+      set-option -g prefix C-x
       unbind-key C-b
-      bind-key C-z send-prefix
+      bind-key C-x send-prefix
     '';
   };
 
