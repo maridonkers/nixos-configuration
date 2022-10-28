@@ -328,6 +328,7 @@ in {
     xsane
     yara
     youtube-dl
+    zathura
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
