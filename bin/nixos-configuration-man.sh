@@ -1,4 +1,4 @@
 #!/bin/sh
 
-man 5 configuration.nix
+PAGER="less" man 5 configuration.nix
 
