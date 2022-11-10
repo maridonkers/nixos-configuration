@@ -209,6 +209,7 @@ in {
     html-tidy
     htop
     imagemagick
+    iotop
     ipfs
     irccloud
     #jdk11
@@ -327,7 +328,6 @@ in {
     xorg.xwininfo
     xsane
     yara
-    youtube-dl
     zathura
   ];
 
