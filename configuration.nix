@@ -133,11 +133,13 @@ in {
     aspellDicts.en-computers
     aspellDicts.en-science
     aspellDicts.nl
+    bandwhich
     banner
+    bat
     beep
     binutils-unwrapped
+    bottom
     boxes
-    bpytop
     brave
     brotli
     btrfs-heatmap
@@ -267,6 +269,7 @@ in {
     pkg-config
     pmutils
     poppler_utils
+    procs
     psensor
     psmisc
     pstree
@@ -276,6 +279,7 @@ in {
     rawtherapee
     rclone
     restic
+    ripgrep
     rmlint
     sabnzbd
     screen
@@ -297,6 +301,7 @@ in {
     termonad
     texlive.combined.scheme-full
     thunderbird
+    tokei
     tree
     ums
     unzip
