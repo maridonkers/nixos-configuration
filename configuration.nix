@@ -57,10 +57,10 @@ in {
 
   # Reflex binary cache -- https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md
   nix = {
-    binaryCaches = [
+    settings.substituters = [
       "https://nixcache.reflex-frp.org"
     ];
-    binaryCachePublicKeys = [
+    settings.trusted-public-keys = [
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
     ];
   };
@@ -242,8 +242,11 @@ in {
     microcodeIntel
     mkvtoolnix
     mpack
-    mpv-with-scripts
-    mupdf
+    # NixOS 22.11 - mpv.override { scripts = [ mpvScripts.plugin-name ]; }
+    #mpv-unwrapped
+    mpv
+    mpvScripts.sponsorblock
+    mpvScripts.youtube-quality
     neofetch
     nix-index
     nix-prefetch-scripts
@@ -266,6 +269,7 @@ in {
     pcmanfm
     pcre
     #pinentry
+    pipewire
     pkg-config
     pmutils
     poppler_utils
