@@ -269,7 +269,6 @@ in {
     pcmanfm
     pcre
     #pinentry
-    pipewire
     pkg-config
     pmutils
     poppler_utils
