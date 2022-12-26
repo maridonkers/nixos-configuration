@@ -18,8 +18,9 @@ in {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./fs-configuration.nix
-      ./network-configuration.nix
-      ./network-samba-configuration.nix
+      ./travel-network-configuration.nix
+      #./home-network-configuration.nix
+      #./home-network-samba-configuration.nix
       ./user-configuration.nix
       ./env-configuration.nix
       ./vpn-configuration.nix
@@ -161,7 +162,6 @@ in {
     cryptsetup
     darcs
     ddrescue
-    #dduper # TODO Broken in 22.05
     dict
     digikam
     dmidecode
@@ -288,6 +288,7 @@ in {
     screen
     scrot
     silver-searcher
+    skim
     slrn
     smartmontools
     smem
@@ -297,7 +298,7 @@ in {
     sourceHighlight
     sshfs
     subdl
-    #subtitleeditor # TODO broken in 22.05
+    subtitleeditor
     sysstat
     tcpdump
     inetutils
