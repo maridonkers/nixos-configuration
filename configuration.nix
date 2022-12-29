@@ -255,6 +255,7 @@ in {
     notmuch
     offlineimap
     okular
+    ookla-speedtest
     opencascade
     openh264
     openscad
