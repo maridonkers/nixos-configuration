@@ -307,6 +307,7 @@ in {
     texlive.combined.scheme-full
     thunderbird
     tokei
+    translate-shell
     tree
     ums
     unzip
