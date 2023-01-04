@@ -312,6 +312,7 @@ in {
     tree
     ums
     unzip
+    urlscan
     usbutils
     vim
     virtmanager
