@@ -254,6 +254,7 @@ in {
     nmap
     nomacs
     notmuch
+    notmuch-mutt
     offlineimap
     okular
     ookla-speedtest
