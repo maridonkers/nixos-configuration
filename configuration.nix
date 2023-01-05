@@ -247,14 +247,12 @@ in {
     mpv
     mpvScripts.sponsorblock
     mpvScripts.youtube-quality
-    mutt
     neofetch
     nix-index
     nix-prefetch-scripts
     nmap
     nomacs
     notmuch
-    notmuch-mutt
     offlineimap
     okular
     ookla-speedtest
