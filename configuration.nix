@@ -255,7 +255,6 @@ in {
     nmap
     nomacs
     notmuch
-    notmuch-mutt
     offlineimap
     okular
     ookla-speedtest
@@ -268,6 +267,7 @@ in {
     pandoc
     paperwork
     par
+    pass
     pavucontrol
     pciutils
     pcmanfm
