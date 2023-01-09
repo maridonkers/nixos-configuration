@@ -233,6 +233,7 @@ in {
     # libav (this is marked as insecure?)
     librecad
     libreoffice
+    lm_sensors
     lshw
     lsof
     lsscsi
