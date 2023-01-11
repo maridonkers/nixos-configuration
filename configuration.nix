@@ -146,6 +146,8 @@ in {
     btrfs-heatmap
     btrfs-progs
     #buttersink
+    cabal-install
+    cabal2nix
     cachix
     calibre
     castnow
@@ -186,6 +188,7 @@ in {
     freecad
     freetype
     fzf
+    ghc
     gimp-with-plugins
     git
     git-crypt
@@ -281,6 +284,7 @@ in {
     psensor
     psmisc
     pstree
+    purescript
     pv
     python3
     ranger
@@ -301,7 +305,9 @@ in {
     snapper
     socat
     sourceHighlight
+    spago
     sshfs
+    stack
     subdl
     subtitleeditor
     sysstat
