@@ -228,6 +228,7 @@ in {
     keepassxc
     killall
     kismet
+    koreader
     #krita
     ktorrent
     ledger
