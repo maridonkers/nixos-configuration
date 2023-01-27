@@ -450,8 +450,8 @@ in {
   # https://nixos.wiki/wiki/Android
   programs.adb.enable = true;
 
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+  # Disable touchpad support by default.
+  services.xserver.libinput.enable = false;
 
   # Compositor (supposedly fixes screen tearing).
   # services.compton.enable = true;
