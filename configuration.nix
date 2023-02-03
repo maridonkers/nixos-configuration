@@ -216,6 +216,7 @@ in {
     imagemagick
     iotop
     ipfs
+    python310Packages.ipython # ipython
     irccloud
     isync
     #jdk11
@@ -294,6 +295,7 @@ in {
     restic
     ripgrep
     rmlint
+    rustup
     sabnzbd
     screen
     scrot
