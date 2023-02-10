@@ -18,8 +18,8 @@ in {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./fs-configuration.nix
-      ./travel-network-configuration.nix
-      #./home-network-configuration.nix
+      #./travel-network-configuration.nix
+      ./home-network-configuration.nix
       #./home-network-samba-configuration.nix
       ./user-configuration.nix
       ./env-configuration.nix
@@ -57,14 +57,14 @@ in {
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
   # Reflex binary cache -- https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md
-  nix = {
-    settings.substituters = [
-      "https://nixcache.reflex-frp.org"
-    ];
-    settings.trusted-public-keys = [
-      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
-    ];
-  };
+  #nix = {
+  #  settings.substituters = [
+  #    "https://nixcache.reflex-frp.org"
+  #  ];
+  #  settings.trusted-public-keys = [
+  #    "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+  #  ];
+  #};
 
   programs.wireshark = {
     enable = true;
@@ -316,7 +316,7 @@ in {
     sysstat
     tcpdump
     inetutils
-    termonad
+    unstable.ta-lib
     texlive.combined.scheme-full
     thunderbird
     tokei
@@ -459,10 +459,12 @@ in {
   # services.compton.enable = true;
   
   # Required for screen-lock-on-suspend functionality.
+  # RuntimeDirectorySize: https://discourse.nixos.org/t/run-usr-id-is-too-small/4842
   services.logind.extraConfig = ''
     LidSwitchIgnoreInhibited=False
     HandleLidSwitch=suspend
     HoldoffTimeoutSec=10
+    RuntimeDirectorySize=3G
   '';
       
   # Graphical environment.
