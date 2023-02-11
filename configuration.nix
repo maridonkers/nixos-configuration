@@ -295,7 +295,7 @@ in {
     restic
     ripgrep
     rmlint
-    rustup
+    #rustup # use a shell.nix per project
     sabnzbd
     screen
     scrot
