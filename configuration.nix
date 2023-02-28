@@ -239,6 +239,7 @@ in {
     # libav (this is marked as insecure?)
     librecad
     libreoffice
+    libstemmer
     lm_sensors
     lshw
     lsof
@@ -331,6 +332,8 @@ in {
     virtmanager
     vlc
     vivaldi
+    wapm-cli
+    wasmer
     wcalc
     wf-recorder
     wget
