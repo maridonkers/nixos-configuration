@@ -357,7 +357,9 @@ in {
     xorg.xwininfo
     xsane
     yara
+    yt-dlp
     zathura
+    zellij
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
