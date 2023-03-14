@@ -163,6 +163,7 @@ in {
     cowsay
     cryptsetup
     darcs
+    dbmate
     ddrescue
     dict
     dig
