@@ -300,6 +300,7 @@ in {
     rmlint
     #rustup # use a shell.nix per project
     sabnzbd
+    safecopy
     screen
     scrot
     silver-searcher
@@ -459,8 +460,8 @@ in {
   # https://nixos.wiki/wiki/Android
   programs.adb.enable = true;
 
-  # Disable touchpad support by default.
-  services.xserver.libinput.enable = false;
+  # Enable touchpad support by default.
+  services.xserver.libinput.enable = true;
 
   # Compositor (supposedly fixes screen tearing).
   # services.compton.enable = true;
