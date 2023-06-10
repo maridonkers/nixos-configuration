@@ -42,7 +42,7 @@ in {
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
+  # [OBSOLETE]boot.loader.grub.version = 2;
   # https://github.com/NixOS/nixpkgs/issues/23926
   # https://discourse.nixos.org/t/what-to-do-with-a-full-boot-partition/2049
   boot.loader.grub.configurationLimit = 3;
@@ -201,7 +201,7 @@ in {
     #google-chrome
     grab-site
     graphviz
-    gwenview
+    #gwenview
     handbrake
     hashcat
     hashcat-utils
@@ -382,9 +382,11 @@ in {
     enable = true;
 
     # Only pubkey auth
-    passwordAuthentication = false;
-    # challengeResponseAuthentication = false; # 22.05 renamed to services.openssh.kbdInteractiveAuthentication
-    kbdInteractiveAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      # challengeResponseAuthentication = false; # 22.05 renamed to services.openssh.kbdInteractiveAuthentication
+      KbdInteractiveAuthentication = false;
+    };
   };
 
   # Start ssh-agent as a systemd user service
