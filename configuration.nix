@@ -157,7 +157,6 @@ in {
     chromium
     cifs-utils
     #clamav # This is installed automatically due to clamav service (see above).
-    clementine
     cmatrix
     compsize
     cowsay
@@ -257,6 +256,7 @@ in {
     mpv
     mpvScripts.sponsorblock
     mpvScripts.youtube-quality
+    musikcube
     mutt
     neofetch
     nix-index
@@ -283,6 +283,7 @@ in {
     pcre
     #pinentry
     pkg-config
+    plantuml-c4
     pmutils
     poppler_utils
     procs
@@ -332,8 +333,9 @@ in {
     usbutils
     vim
     virtmanager
-    vlc
     vivaldi
+    vlc
+    vym
     wapm-cli
     wasmer
     wcalc
