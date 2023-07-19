@@ -333,7 +333,6 @@ in {
     usbutils
     vim
     virtmanager
-    vivaldi
     vlc
     vym
     wapm-cli
