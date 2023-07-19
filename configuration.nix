@@ -264,6 +264,7 @@ in {
     nmap
     nomacs
     notmuch
+    nyxt
     offlineimap
     okular
     ookla-speedtest
