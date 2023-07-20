@@ -187,6 +187,7 @@ in {
     firefox
     fortune
     freecad
+    freetube
     freetype
     fzf
     ghc
@@ -322,7 +323,7 @@ in {
     sysstat
     tcpdump
     inetutils
-    unstable.ta-lib
+    #unstable.ta-lib
     texlive.combined.scheme-full
     thunderbird
     tokei
