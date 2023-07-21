@@ -154,7 +154,7 @@ in {
     cbonsai
     ccache
     cdrkit
-    chromium
+    # chromium # TODO floods syslog with error messages -- vr 21 jul 2023 11:56:25 CEST
     cifs-utils
     #clamav # This is installed automatically due to clamav service (see above).
     cmatrix
@@ -184,7 +184,7 @@ in {
     figlet
     file
     filezilla
-    firefox
+    # firefox # WebKit processes are too much for my aging laptop (?)
     fortune
     freecad
     freetube
@@ -233,7 +233,6 @@ in {
     kismet
     koreader
     #krita
-    ktorrent
     ledger
     lf
     lftp
@@ -260,12 +259,13 @@ in {
     musikcube
     mutt
     neofetch
+    netsurf.browser
     nix-index
     nix-prefetch-scripts
     nmap
     nomacs
     notmuch
-    nyxt
+    # nyxt # WebKit processes are too much for my aging laptop (?)
     offlineimap
     okular
     ookla-speedtest
