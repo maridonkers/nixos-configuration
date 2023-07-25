@@ -134,6 +134,7 @@ in {
     aspellDicts.en-computers
     aspellDicts.en-science
     aspellDicts.nl
+    aws-sam-cli
     bandwhich
     banner
     bat
@@ -187,7 +188,6 @@ in {
     # firefox # WebKit processes are too much for my aging laptop (?)
     fortune
     freecad
-    freetube
     freetype
     fzf
     ghc
@@ -259,7 +259,7 @@ in {
     musikcube
     mutt
     neofetch
-    netsurf.browser
+    unstable.netsurf.browser
     nix-index
     nix-prefetch-scripts
     nmap
