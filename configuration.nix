@@ -134,6 +134,7 @@ in {
     aspellDicts.en-computers
     aspellDicts.en-science
     aspellDicts.nl
+    awscli2
     aws-sam-cli
     bandwhich
     banner
