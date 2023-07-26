@@ -156,7 +156,7 @@ in {
     cbonsai
     ccache
     cdrkit
-    # chromium # TODO floods syslog with error messages -- vr 21 jul 2023 11:56:25 CEST
+    chromium
     cifs-utils
     #clamav # This is installed automatically due to clamav service (see above).
     cmatrix
