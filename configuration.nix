@@ -404,11 +404,11 @@ in {
   programs.tmux = {
     enable = true;
     clock24 = true;
-    extraConfig = '' 
-      set-option -g prefix C-x
-      unbind-key C-b
-      bind-key C-x send-prefix
-    '';
+    #extraConfig = '' 
+    #  set-option -g prefix C-x
+    #  unbind-key C-b
+    #  bind-key C-x send-prefix
+    #'';
   };
 
   # Printing. Enable CUPS to print documents.
