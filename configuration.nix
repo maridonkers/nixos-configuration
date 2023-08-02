@@ -316,7 +316,6 @@ in {
     snapper
     socat
     sourceHighlight
-    spago
     sshfs
     stack
     subdl
