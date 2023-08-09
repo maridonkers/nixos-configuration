@@ -234,6 +234,7 @@ in {
     kismet
     koreader
     #krita
+    lazygit
     ledger
     lf
     lftp
@@ -260,13 +261,14 @@ in {
     musikcube
     mutt
     neofetch
-    unstable.netsurf.browser
+    neovim
+    neovim-qt
     nix-index
     nix-prefetch-scripts
     nmap
     nomacs
     notmuch
-    # nyxt # WebKit processes are too much for my aging laptop (?)
+    nyxt
     offlineimap
     okular
     ookla-speedtest
