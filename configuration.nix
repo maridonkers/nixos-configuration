@@ -244,6 +244,7 @@ in {
     # libav (this is marked as insecure?)
     librecad
     libreoffice
+    librewolf
     libstemmer
     lm_sensors
     lshw
