@@ -191,6 +191,7 @@ in {
     freecad
     freetype
     fzf
+    gcc_multi
     ghc
     gimp-with-plugins
     git
@@ -199,6 +200,7 @@ in {
     gitAndTools.tig
     gnumake
     gnupg
+    go
     #google-chrome
     grab-site
     graphviz
@@ -225,6 +227,7 @@ in {
     #jdk11
     #jitsi # (use nix-env install under account for this)
     jp2a
+    jujutsu
     kate
     kcalc
     kdenlive
@@ -268,7 +271,7 @@ in {
     nmap
     nomacs
     notmuch
-    nyxt
+    # nyxt # WebKit based browsers are too much for my aging laptop
     offlineimap
     okular
     ookla-speedtest
@@ -304,7 +307,7 @@ in {
     restic
     ripgrep
     rmlint
-    #rustup # use a shell.nix per project
+    rustup
     sabnzbd
     safecopy
     screen
@@ -318,6 +321,7 @@ in {
     snapper
     socat
     sourceHighlight
+    sqlite
     sshfs
     stack
     subdl
