@@ -56,15 +56,9 @@ in {
   # Kernel parameters.
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
-  # Reflex binary cache -- https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md
-  #nix = {
-  #  settings.substituters = [
-  #    "https://nixcache.reflex-frp.org"
-  #  ];
-  #  settings.trusted-public-keys = [
-  #    "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
-  #  ];
-  #};
+  # https://github.com/obsidiansystems/obelisk/#installing-obelisk
+  # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
+  # nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   programs.wireshark = {
     enable = true;
@@ -300,7 +294,6 @@ in {
     psensor
     psmisc
     pstree
-    purescript
     pv
     python3
     ranger
@@ -486,6 +479,13 @@ in {
     HandleLidSwitch=suspend
     HoldoffTimeoutSec=10
     RuntimeDirectorySize=3G
+  '';
+
+  # https://www.reddit.com/r/NixOS/comments/fkrbd1/options_for_power_managment/
+  # https://wiki.archlinux.org/title/Display_Power_Management_Signaling
+  # Disable screen off because monitor will no longer come out of black
+  environment.extraInit = ''
+    xset s off -dpms
   '';
       
   # Graphical environment.
