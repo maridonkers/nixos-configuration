@@ -483,10 +483,10 @@ in {
 
   # https://www.reddit.com/r/NixOS/comments/fkrbd1/options_for_power_managment/
   # https://wiki.archlinux.org/title/Display_Power_Management_Signaling
-  # Disable screen off because monitor has difficulty to escape darkness.
-  environment.extraInit = ''
-    xset s off -dpms 2>&1 > /dev/null
-  '';
+  # To disable screen off when monitor has difficulty to escape darkness.
+  #environment.extraInit = ''
+  #  xset s off -dpms 2>&1 > /dev/null
+  #'';
       
   # Graphical environment.
   services.xserver = {
