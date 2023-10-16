@@ -190,6 +190,7 @@ in {
     gimp-with-plugins
     git
     git-crypt
+    git-lfs
     gitAndTools.gitRemoteGcrypt
     gitAndTools.tig
     gnumake
