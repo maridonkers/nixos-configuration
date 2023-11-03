@@ -318,6 +318,7 @@ in {
     socat
     sourceHighlight
     sqlite
+    sutils
     sshfs
     stack
     subdl
