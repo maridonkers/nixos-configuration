@@ -23,7 +23,7 @@ in {
       ./home-network-samba-configuration.nix
       ./user-configuration.nix
       ./env-configuration.nix
-      ./vpn-configuration.nix
+      #./vpn-configuration.nix
       ./cachix.nix
     ];
 
@@ -59,6 +59,60 @@ in {
   # https://github.com/obsidiansystems/obelisk/#installing-obelisk
   # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
   # nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+
+  # https://github.com/Mic92/nix-ld
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    fuse3
+    alsa-lib
+    at-spi2-atk
+    at-spi2-core
+    atk
+    cairo
+    cups
+    curl
+    dbus
+    expat
+    fontconfig
+    freetype
+    gdk-pixbuf
+    glib
+    gtk3
+    libGL
+    libappindicator-gtk3
+    libdrm
+    libnotify
+    libpulseaudio
+    libuuid
+    libusb1
+    xorg.libxcb
+    libxkbcommon
+    mesa
+    nspr
+    nss
+    nwjs
+    pango
+    pipewire
+    systemd
+    icu
+    openssl
+    xorg.libX11
+    xorg.libXScrnSaver
+    xorg.libXcomposite
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXtst
+    xorg.libxkbfile
+    xorg.libxshmfence
+    zlib
+  ];
 
   programs.wireshark = {
     enable = true;
@@ -276,6 +330,7 @@ in {
     openh264
     openscad
     openssl
+    openvpn
     opera
     p7zip
     pandoc
@@ -434,8 +489,10 @@ in {
   hardware.bluetooth.enable = false;
   
   # OpenGL configuration.
+  # https://discourse.nixos.org/t/trouble-getting-hardware-video-decoding-in-chrome-based-browsers-with-amd-gpu/25206/6
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     driSupport32Bit = true;
   };
 
