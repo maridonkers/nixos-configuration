@@ -4,9 +4,8 @@
   # Root filesystem.
   #
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8be69c44-b987-4eb8-a1b6-c67ed80c9512";
-      fsType = "btrfs";
-      options = [ "noatime" "space_cache" ];
+    { device = "/dev/disk/by-uuid/ccea459a-2a43-4f1e-8cf5-911350d3cfca";
+      fsType = "ext4";
     };
 
   # Boot filesystem.

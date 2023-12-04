@@ -56,6 +56,10 @@ in {
   # Kernel parameters.
   boot.kernelParams = [ "acpi_osi=Linux" ];
 
+  # https://nixos.wiki/wiki/Flakes
+  # https://mhwombat.codeberg.page/nix-book/
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # https://github.com/obsidiansystems/obelisk/#installing-obelisk
   # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
   # nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
@@ -217,6 +221,7 @@ in {
     dict
     dig
     digikam
+    direnv
     dmidecode
     docker
     docker-compose
@@ -225,7 +230,7 @@ in {
     e2fsprogs
     emacs
     entr
-    exa
+    eza
     exif
     exiv2
     fd
@@ -251,7 +256,6 @@ in {
     gnupg
     go
     #google-chrome
-    grab-site
     graphviz
     #gwenview
     handbrake
@@ -265,6 +269,7 @@ in {
     hledger
     hledger-ui
     hlint
+    #hpack
     html-tidy
     htop
     imagemagick
@@ -311,7 +316,7 @@ in {
     #mpv-unwrapped
     mpv
     mpvScripts.sponsorblock
-    mpvScripts.youtube-quality
+    mpvScripts.quality-menu
     musikcube
     mutt
     neofetch
@@ -326,7 +331,7 @@ in {
     offlineimap
     okular
     ookla-speedtest
-    opencascade
+    opencascade-occt # opencascade
     openh264
     openscad
     openssl
@@ -392,7 +397,7 @@ in {
     urlscan
     usbutils
     vim
-    virtmanager
+    virt-manager
     vlc
     vym
     wapm-cli
@@ -582,7 +587,7 @@ in {
   };
 
  # https://nixos.wiki/wiki/Fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     hack-font
     noto-fonts
     noto-fonts-cjk
@@ -600,5 +605,5 @@ in {
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
