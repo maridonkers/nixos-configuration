@@ -300,7 +300,6 @@ in {
     # libav (this is marked as insecure?)
     librecad
     libreoffice
-    # https://librewolf.net/docs/faq/#cant-open-links-with-librewolf-when-using-wayland
     librewolf
     libstemmer
     lm_sensors
