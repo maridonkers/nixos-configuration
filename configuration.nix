@@ -6,14 +6,13 @@
 # https://nixos.org/nixos/options.html
 # https://nixos.wiki/wiki/Configuration_Collection
 #
+# https://status.nixos.org/
+# https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488
+#
 
 { config, pkgs, ... }:
 
-# This (unstable) is only applicable when the unstable channel is installed (which is optional).
-# https://discourse.nixos.org/t/install-nixpkgs-unstable-in-configuration-nix/6462/2
-# nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {
+{
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -50,7 +49,8 @@ in {
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/disk/by-id/ata-WDC_WD5000BEKT-60KA9T0_WD-WXG1AA0N9929"; # or "nodev" for efi only
+  #boot.loader.grub.device = "/dev/disk/by-id/ata-WDC_WD5000BEKT-60KA9T0_WD-WXG1AA0N9929"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/disk/by-id/ata-TOSHIBA_MQ01ABD050V_Z4K5SACFS"; # or "nodev" for efi only
   # boot.loader.grub.extraConfig = "terminal_input_console terminal_output_console";
   
   # Kernel parameters.
@@ -58,7 +58,7 @@ in {
 
   # https://nixos.wiki/wiki/Flakes
   # https://mhwombat.codeberg.page/nix-book/
-  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # https://github.com/obsidiansystems/obelisk/#installing-obelisk
   # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
@@ -176,6 +176,7 @@ in {
   # `nix search wget`
   environment.systemPackages = with pkgs; [
     aegisub
+    # android-studio # broken?
     android-file-transfer
     apktool
     appimage-run
@@ -200,7 +201,6 @@ in {
     brotli
     btrfs-heatmap
     btrfs-progs
-    #buttersink
     cabal-install
     cabal2nix
     cachix
@@ -211,7 +211,6 @@ in {
     cdrkit
     chromium
     cifs-utils
-    #clamav # This is installed automatically due to clamav service (see above).
     cmatrix
     compsize
     cowsay
@@ -240,9 +239,9 @@ in {
     figlet
     file
     filezilla
-    # firefox # WebKit processes are too much for my aging laptop (?)
     fortune
     freecad
+    freetube
     freetype
     fzf
     gcc_multi
@@ -256,9 +255,7 @@ in {
     gnumake
     gnupg
     go
-    #google-chrome
     graphviz
-    #gwenview
     handbrake
     hashcat
     hashcat-utils
@@ -270,18 +267,17 @@ in {
     hledger
     hledger-ui
     hlint
-    #hpack
     html-tidy
     htop
+    hydra-check
     imagemagick
     iotop
     ipfs
-    python310Packages.ipython # ipython
+    python310Packages.ipython 
     irccloud
     isync
-    #jdk11
-    #jitsi # (use nix-env install under account for this)
     jp2a
+    jq
     jujutsu
     just
     kate
@@ -292,12 +288,10 @@ in {
     killall
     kismet
     koreader
-    #krita
     lazygit
     ledger
     lf
     lftp
-    # libav (this is marked as insecure?)
     librecad
     libreoffice
     librewolf
@@ -307,14 +301,13 @@ in {
     lsof
     lsscsi
     lynis
+    lynx
     mdcat
     mercurial
     metasploit
     microcodeIntel
     mkvtoolnix
     mpack
-    # NixOS 22.11 - mpv.override { scripts = [ mpvScripts.plugin-name ]; }
-    #mpv-unwrapped
     mpv
     mpvScripts.sponsorblock
     mpvScripts.quality-menu
@@ -328,11 +321,11 @@ in {
     nmap
     nomacs
     notmuch
-    # nyxt # WebKit based browsers are too much for my aging laptop
+    nyxt
     offlineimap
     okular
     ookla-speedtest
-    opencascade-occt # opencascade
+    opencascade-occt
     openh264
     openscad
     openssl
@@ -347,7 +340,6 @@ in {
     pciutils
     pcmanfm
     pcre
-    #pinentry
     pkg-config
     plantuml-c4
     pmutils
@@ -387,10 +379,10 @@ in {
     sysstat
     tcpdump
     inetutils
-    #unstable.ta-lib
-    texlive.combined.scheme-full
+    texliveMinimal
     thunderbird
     tokei
+    tor-browser-bundle-bin
     translate-shell
     tree
     ums
@@ -399,6 +391,8 @@ in {
     usbutils
     vim
     virt-manager
+    vivaldi
+    vivaldi-ffmpeg-codecs
     vlc
     vym
     wapm-cli
@@ -406,6 +400,8 @@ in {
     wcalc
     wf-recorder
     wget
+    #wine
+    #winetricks
     wirelesstools
     wmctrl
     wmctrl
@@ -414,7 +410,6 @@ in {
     xdotool
     xlockmore
     xmobar
-    #xmonad-with-packages
     xorg.xdpyinfo
     xorg.xev
     xorg.xeyes
@@ -437,6 +432,10 @@ in {
 
 
   services.fwupd.enable = true;
+  # fwupdmgr[231212]: WARNING: UEFI firmware can not be updated in legacy BIOS mode
+  # fwupdmgr[231212]: See https://github.com/fwupd/fwupd/wiki/PluginFlag:legacy-bios for more information.
+  # TODO Has no effect on the error message?
+  #services.fwupd.daemonSettings.DisabledPlugins = [ "test" " invalid" "bios" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
