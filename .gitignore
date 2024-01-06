@@ -2,7 +2,6 @@ home-network-configuration.nix
 home-network-samba-configuration.nix
 travel-network-configuration.nix
 /env-configuration.nix
-/user-configuration.nix
 /vpn-configuration.nix
 /result
 /generated/

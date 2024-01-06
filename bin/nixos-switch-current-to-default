@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488/2
+#
+
+/run/current-system/bin/switch-to-configuration boot
+
