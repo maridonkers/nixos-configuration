@@ -226,6 +226,7 @@
     docker
     docker-compose
     dos2unix
+    duperemove
     dvdbackup
     e2fsprogs
     emacs
@@ -321,7 +322,7 @@
     nmap
     nomacs
     notmuch
-    nyxt
+    # nyxt [broken]
     offlineimap
     okular
     ookla-speedtest
@@ -353,6 +354,7 @@
     ranger
     rawtherapee
     rclone
+    rename
     restic
     ripgrep
     rmlint
