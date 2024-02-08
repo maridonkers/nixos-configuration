@@ -175,79 +175,41 @@
   # List packages installed in system profile. To search, run:
   # `nix search wget`
   environment.systemPackages = with pkgs; [
-    aegisub
-    # android-studio # broken?
-    android-file-transfer
-    apktool
     appimage-run
     arandr
-    aria
     ark
-    ascii
-    aspellDicts.en
-    aspellDicts.en-computers
-    aspellDicts.en-science
-    aspellDicts.nl
-    awscli2
-    aws-sam-cli
     bandwhich
     banner
-    bat
     beep
     binutils-unwrapped
     bottom
-    boxes
-    brave
     brotli
     btrfs-heatmap
     btrfs-progs
-    cabal-install
-    cabal2nix
     cachix
-    calibre
     castnow
-    cbonsai
     ccache
     cdrkit
     chromium
     cifs-utils
-    cmatrix
     compsize
-    cowsay
     cryptsetup
     darcs
-    dbmate
     ddrescue
-    dict
     dig
     digikam
-    direnv
     dmidecode
-    docker
-    docker-compose
     dos2unix
     duperemove
     dvdbackup
     e2fsprogs
-    emacs
     entr
     eza
     exif
     exiv2
     fd
-    feh
-    ffmpeg
-    figlet
     file
-    filezilla
-    fortune
-    freecad
-    freetube
     freetype
-    fzf
-    gcc_multi
-    ghc
-    gimp-with-plugins
     git
     git-crypt
     git-lfs
@@ -255,157 +217,67 @@
     gitAndTools.tig
     gnumake
     gnupg
-    go
-    graphviz
-    handbrake
-    hashcat
-    hashcat-utils
-    hcxtools
     hddtemp
     hdparm
-    heimdall-gui
-    highlight
-    hledger
-    hledger-ui
-    hlint
     html-tidy
     htop
-    hydra-check
-    imagemagick
     iotop
-    ipfs
-    python310Packages.ipython 
-    irccloud
-    isync
-    jp2a
-    jq
-    jujutsu
-    just
-    kate
-    kcalc
-    kdenlive
-    kdiff3
-    keepassxc
     killall
-    kismet
-    koreader
-    lazygit
-    ledger
-    lf
     lftp
-    librecad
-    libreoffice
-    librewolf
-    libstemmer
     lm_sensors
     lshw
     lsof
     lsscsi
     lynis
-    lynx
-    mdcat
-    mercurial
-    metasploit
     microcodeIntel
     mkvtoolnix
     mpack
-    mpv
-    mpvScripts.sponsorblock
-    mpvScripts.quality-menu
-    musikcube
-    mutt
     neofetch
-    neovim
-    neovim-qt
     nix-index
     nix-prefetch-scripts
     nmap
-    nomacs
-    notmuch
-    # nyxt [broken]
-    offlineimap
-    okular
-    ookla-speedtest
-    opencascade-occt
     openh264
-    openscad
     openssl
     openvpn
-    opera
     p7zip
-    pandoc
-    paperwork
-    par
     pass
     pavucontrol
     pciutils
-    pcmanfm
-    pcre
     pkg-config
-    plantuml-c4
     pmutils
-    poppler_utils
     procs
     psensor
     psmisc
     pstree
     pv
-    python3
     ranger
-    rawtherapee
     rclone
     rename
     restic
-    ripgrep
     rmlint
-    rustup
-    sabnzbd
     safecopy
     screen
     scrot
-    silver-searcher
     skim
-    slrn
     smartmontools
     smem
     smemstat
     snapper
     socat
-    sourceHighlight
-    sqlite
     sutils
     sshfs
-    stack
-    subdl
-    subtitleeditor
     sysstat
     tcpdump
     inetutils
-    texliveMinimal
-    thunderbird
-    tokei
-    tor-browser-bundle-bin
-    translate-shell
     tree
     ums
     unzip
-    urlscan
     usbutils
     vim
     virt-manager
-    vivaldi
-    vivaldi-ffmpeg-codecs
-    vlc
-    vym
-    wapm-cli
-    wasmer
-    wcalc
     wf-recorder
     wget
-    #wine
-    #winetricks
     wirelesstools
-    wmctrl
     wmctrl
     wpa_supplicant
     xclip
@@ -423,9 +295,6 @@
     xorg.xwininfo
     xsane
     yara
-    yt-dlp
-    zathura
-    zellij
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
@@ -519,12 +388,12 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "us"; 
+  services.xserver.xkb.layout = "us"; 
   # services.xserver.xkbVariant = "altgr-intl"; 
   #services.xserver.xkbOptions = "eurosign:e";
   # services.xserver.xkbOptions = "compose:caps,shift:both_capslock";
   # services.xserver.xkbOptions = "compose:sclk";
-  services.xserver.xkbOptions = "compose:caps,shift:both_capslock,eurosign:e";
+  services.xserver.xkb.options = "compose:caps,shift:both_capslock,eurosign:e";
 
   # Legacy video driver for NVIDIA GeForce 335M (?) support.
   #services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
