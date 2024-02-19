@@ -11,7 +11,6 @@
 
     packages = with pkgs; 
     [
-      conda
       aegisub
       # android-studio # broken?
       android-file-transfer
@@ -39,6 +38,7 @@
       ccache
       chromium
       cmatrix
+      conda
       cowsay
       dbmate
       dict
@@ -148,6 +148,7 @@
       wapm-cli
       wasmer
       wcalc
+      weather
       #wine
       #winetricks
       yt-dlp
