@@ -38,7 +38,6 @@
       ccache
       chromium
       cmatrix
-      conda
       cowsay
       dbmate
       dict
