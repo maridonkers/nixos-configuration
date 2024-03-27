@@ -1,6 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-stable, ... }:
 
 {
+  # TODO https://github.com/ryantm/agenix
+  age.secrets.mdo-bashrc = {
+    file = ./secrets/mdo-bashrc.age;
+    owner = "mdo";
+    path = "/home/mdo/.bashrc";
+    symlink = false;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdo = {
     isNormalUser = true;
@@ -9,150 +17,148 @@
                     "audio" "disk" "video" "network"
                     "systemd-journal" "lp" "scanner" "adbusers" ];
 
-    packages = with pkgs; 
-    [
-      aegisub
-      # android-studio # broken?
-      android-file-transfer
-      apktool
-      appimage-run
-      aria
-      ascii
-      aspellDicts.en
-      aspellDicts.en-computers
-      aspellDicts.en-science
-      aspellDicts.nl
-      awscli2
-      aws-sam-cli
-      bandwhich
-      banner
-      bat
-      boxes
-      brave
-      btrfs-heatmap
-      btrfs-progs
-      cabal-install
-      cabal2nix
-      calibre
-      cbonsai
-      ccache
-      chromium
-      cmatrix
-      cowsay
-      dbmate
-      dict
-      digikam
-      direnv
-      docker
-      docker-compose
-      emacs
-      exif
-      exiv2
-      feh
-      ffmpeg
-      figlet
-      filezilla
-      fortune
-      freecad
-      freetube
-      fzf
-      gcc_multi
-      ghc
-      gimp-with-plugins
-      go
-      graphviz
-      handbrake
-      hashcat
-      hashcat-utils
-      hcxtools
-      heimdall-gui
-      highlight
-      hledger
-      hledger-ui
-      hlint
-      html-tidy
-      hydra-check
-      imagemagick
-      ipfs
-      python310Packages.ipython 
-      irccloud
-      isync
-      jp2a
-      jq
-      jujutsu
-      just
-      kate
-      kcalc
-      kdenlive
-      kdiff3
-      keepassxc
-      kismet
-      koreader
-      lazygit
-      ledger
-      librecad
-      libreoffice
-      librewolf
-      libstemmer
-      lynx
-      mdcat
-      mercurial
-      metasploit
-      mkvtoolnix
-      mpv
-      mpvScripts.sponsorblock
-      mpvScripts.quality-menu
-      musikcube
-      mutt
-      neovim
-      neovim-qt
-      nomacs
-      notmuch
-      offlineimap
-      okular
-      ookla-speedtest
-      opencascade-occt
-      openscad
-      opera
-      pandoc
-      paperwork
-      par
-      pcmanfm
-      pcre
-      plantuml-c4
-      poppler_utils
-      python3
-      rawtherapee
-      ripgrep
-      rustup
-      sabnzbd
-      silver-searcher
-      slrn
-      sourceHighlight
-      sqlite
-      stack
-      subdl
-      subtitleeditor
-      texliveMinimal
-      thunderbird
-      tokei
-      tor-browser-bundle-bin
-      translate-shell
-      urlscan
-      virt-manager
-      vivaldi
-      vivaldi-ffmpeg-codecs
-      vlc
-      vym
-      wapm-cli
-      wasmer
-      wcalc
-      weather
-      #wine
-      #winetricks
-      yt-dlp
-      zathura
-      zellij
+    packages = [
+      pkgs.aegisub
+      # pkgs.android-studio # broken?
+      pkgs.android-file-transfer
+      pkgs.apktool
+      pkgs.appimage-run
+      pkgs.aria
+      pkgs.ascii
+      pkgs.aspellDicts.en
+      pkgs.aspellDicts.en-computers
+      pkgs.aspellDicts.en-science
+      pkgs.aspellDicts.nl
+      pkgs-stable.awscli2
+      pkgs-stable.aws-sam-cli
+      pkgs.bandwhich
+      pkgs.banner
+      pkgs.bat
+      pkgs.boxes
+      pkgs.brave
+      pkgs.btrfs-heatmap
+      pkgs.btrfs-progs
+      pkgs.cabal-install
+      pkgs.cabal2nix
+      pkgs.calibre
+      pkgs.cbonsai
+      pkgs.ccache
+      pkgs.chromium
+      pkgs.cmatrix
+      pkgs.cowsay
+      pkgs.dbmate
+      pkgs.dict
+      pkgs.digikam
+      pkgs.direnv
+      pkgs.docker
+      pkgs.docker-compose
+      pkgs.emacs
+      pkgs.exif
+      pkgs.exiv2
+      pkgs.feh
+      pkgs-stable.ffmpeg
+      pkgs.figlet
+      pkgs.filezilla
+      pkgs.fortune
+      pkgs.freecad
+      pkgs.freetube
+      pkgs.fzf
+      pkgs.gcc_multi
+      pkgs.ghc
+      pkgs-stable.gimp-with-plugins
+      pkgs.go
+      pkgs.graphviz
+      pkgs-stable.handbrake
+      pkgs.hashcat
+      pkgs.hashcat-utils
+      pkgs.hcxtools
+      pkgs.heimdall-gui
+      pkgs.highlight
+      pkgs.hledger
+      pkgs.hledger-ui
+      pkgs.hlint
+      pkgs.html-tidy
+      pkgs.imagemagick
+      pkgs.ipfs
+      pkgs.python310Packages.ipython 
+      pkgs.irccloud
+      pkgs.isync
+      pkgs.jp2a
+      pkgs.jq
+      pkgs.jujutsu
+      pkgs.just
+      pkgs.kate
+      pkgs.kcalc
+      pkgs.kdenlive
+      pkgs.kdiff3
+      pkgs.keepassxc
+      pkgs.kismet
+      pkgs.koreader
+      pkgs.lazygit
+      pkgs.ledger
+      pkgs.librecad
+      pkgs.libreoffice
+      pkgs.librewolf
+      pkgs.libstemmer
+      pkgs.lynx
+      pkgs.mdcat
+      pkgs.mercurial
+      pkgs.metasploit
+      pkgs.mkvtoolnix
+      pkgs.mpv
+      pkgs.mpvScripts.sponsorblock
+      pkgs.mpvScripts.quality-menu
+      pkgs.musikcube
+      pkgs.mutt
+      pkgs.neovim
+      pkgs.neovim-qt
+      pkgs.nomacs
+      pkgs.notmuch
+      pkgs.offlineimap
+      pkgs.okular
+      pkgs.ookla-speedtest
+      pkgs.opencascade-occt
+      pkgs.openscad
+      pkgs.opera
+      pkgs.pandoc
+      pkgs.paperwork
+      pkgs.par
+      pkgs.pcmanfm
+      pkgs.pcre
+      pkgs.plantuml-c4
+      pkgs.poppler_utils
+      pkgs.python3
+      pkgs.rawtherapee
+      pkgs.ripgrep
+      pkgs.rustup
+      pkgs.sabnzbd
+      pkgs.silver-searcher
+      pkgs.slrn
+      pkgs.sourceHighlight
+      pkgs.sqlite
+      pkgs.stack
+      pkgs.subdl
+      pkgs.subtitleeditor
+      pkgs.texliveMinimal
+      pkgs.thunderbird
+      pkgs.tokei
+      pkgs.tor-browser-bundle-bin
+      pkgs.translate-shell
+      pkgs.urlscan
+      pkgs.virt-manager
+      #pkgs.vivaldi
+      #pkgs.vivaldi-ffmpeg-codecs
+      pkgs.vlc
+      pkgs.vym
+      pkgs.wapm-cli
+      pkgs.wasmer
+      pkgs.wcalc
+      pkgs.weather
+      #pkgs.wine
+      #pkgs.winetricks
+      pkgs.yt-dlp
+      pkgs.zathura
+      pkgs.zellij
     ]; 
   };
 
@@ -161,10 +167,9 @@
     uid = 1001;
     extraGroups = [ "audio" "disk" "video" ];
 
-    packages = with pkgs; 
-    [
-      libreoffice
-      librewolf
+    packages = [
+      pkgs.libreoffice
+      pkgs.librewolf
     ]; 
   };
 
