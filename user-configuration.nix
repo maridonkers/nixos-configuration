@@ -120,6 +120,7 @@
       pkgs.opencascade-occt
       pkgs.openscad
       pkgs.opera
+      pkgs.pan
       pkgs.pandoc
       pkgs.paperwork
       pkgs.par
