@@ -463,13 +463,15 @@
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
     displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "none+xmonad";
+    #displayManager.defaultSession = "none+xmonad";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
     #  xmodmap /path/to/.Xmodmap
     #  '';
   };
+
+  services.displayManager.defaultSession = "none+xmonad";
 
  # https://nixos.wiki/wiki/Fonts
   fonts.packages = with pkgs; [
