@@ -129,6 +129,7 @@
       pkgs.plantuml-c4
       pkgs.poppler_utils
       pkgs.python3
+      pkgs.racket
       pkgs.rawtherapee
       pkgs.ripgrep
       pkgs.rustup
