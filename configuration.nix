@@ -19,7 +19,7 @@
       ./fs-configuration.nix
       #./travel-network-configuration.nix
       ./home-network-configuration.nix
-      ./home-network-samba-configuration.nix
+      #./home-network-samba-configuration.nix
       ./user-configuration.nix
       ./cachix.nix
     ];
