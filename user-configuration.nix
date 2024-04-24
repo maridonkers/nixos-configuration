@@ -122,7 +122,7 @@
       pkgs.opera
       pkgs.pan
       pkgs.pandoc
-      pkgs.paperwork
+      pkgs-stable.paperwork
       pkgs.par
       pkgs.pcmanfm
       pkgs.pcre
