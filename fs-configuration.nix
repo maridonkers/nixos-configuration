@@ -4,16 +4,22 @@
   # Root filesystem.
   #
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2fb30582-8705-4641-93fd-b3515a597e41";
+    { device = "/dev/disk/by-uuid/8148bec1-bb21-4202-bf99-8ad3c33d8c32";
       fsType = "ext4";
     };
 
   # Boot filesystem.
   #
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/c62c9d4d-a341-4a77-8457-186dab77db54";
+    { device = "/dev/disk/by-uuid/6e2a0881-0a29-43e6-a8ed-44e1fa8909e6";
       fsType = "ext4";
     };
+
+  # Swap partition.
+  #
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/493ad088-5b50-4aae-95b4-381a52292946"; }
+    ];
 
   # Encrypted partition.
   #
@@ -26,12 +32,6 @@
       fsType = "btrfs";
       options = [ "noatime" "space_cache" ];
     };
-
-  # Swap partition.
-  #
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/52ec5fd2-5ec0-4758-bc5e-eaa21f8e6e6d"; }
-    ];
 
   # Enable NTFS support.
   boot.supportedFilesystems = [ "ntfs" ];

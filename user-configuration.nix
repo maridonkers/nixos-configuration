@@ -1,14 +1,6 @@
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
-  # TODO https://github.com/ryantm/agenix
-  age.secrets.mdo-bashrc = {
-    file = ./secrets/mdo-bashrc.age;
-    owner = "mdo";
-    path = "/home/mdo/.bashrc";
-    symlink = false;
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mdo = {
     isNormalUser = true;
@@ -17,7 +9,8 @@
                     "audio" "disk" "video" "network"
                     "systemd-journal" "lp" "scanner" "adbusers" ];
 
-    packages = [
+    packages = 
+    [
       pkgs.aegisub
       # pkgs.android-studio # broken?
       pkgs.android-file-transfer
@@ -29,8 +22,8 @@
       pkgs.aspellDicts.en-computers
       pkgs.aspellDicts.en-science
       pkgs.aspellDicts.nl
-      pkgs-stable.awscli2
-      pkgs-stable.aws-sam-cli
+      pkgs.awscli2
+      pkgs.aws-sam-cli
       pkgs.bandwhich
       pkgs.banner
       pkgs.bat
@@ -38,8 +31,8 @@
       pkgs.brave
       pkgs.btrfs-heatmap
       pkgs.btrfs-progs
-      pkgs.cabal-install
-      pkgs.cabal2nix
+      #pkgs.cabal-install
+      #pkgs.cabal2nix
       pkgs.calibre
       pkgs.cbonsai
       pkgs.ccache
@@ -52,11 +45,11 @@
       pkgs.direnv
       pkgs.docker
       pkgs.docker-compose
-      pkgs.emacs
+      pkgs-unstable.emacs
       pkgs.exif
       pkgs.exiv2
       pkgs.feh
-      pkgs-stable.ffmpeg
+      pkgs.ffmpeg
       pkgs.figlet
       pkgs.filezilla
       pkgs.fortune
@@ -64,11 +57,11 @@
       pkgs.freetube
       pkgs.fzf
       pkgs.gcc_multi
-      pkgs.ghc
-      pkgs-stable.gimp-with-plugins
+      #pkgs.ghc
+      #pkgs.gimp-with-plugins # broken
       pkgs.go
       pkgs.graphviz
-      pkgs-stable.handbrake
+      pkgs.handbrake
       pkgs.hashcat
       pkgs.hashcat-utils
       pkgs.hcxtools
@@ -120,16 +113,15 @@
       pkgs.opencascade-occt
       pkgs.openscad
       pkgs.opera
-      pkgs.pan
       pkgs.pandoc
-      pkgs-stable.paperwork
+      pkgs.paperwork
       pkgs.par
       pkgs.pcmanfm
       pkgs.pcre
       pkgs.plantuml-c4
       pkgs.poppler_utils
       pkgs.python3
-      pkgs.racket
+      pkgs-unstable.racket
       pkgs.rawtherapee
       pkgs.ripgrep
       pkgs.rustup
@@ -169,7 +161,8 @@
     uid = 1001;
     extraGroups = [ "audio" "disk" "video" ];
 
-    packages = [
+    packages = 
+    [
       pkgs.libreoffice
       pkgs.librewolf
     ]; 

@@ -10,7 +10,7 @@
 # https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488
 #
 
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -21,6 +21,8 @@
       ./home-network-configuration.nix
       #./home-network-samba-configuration.nix
       ./user-configuration.nix
+      ./env-configuration.nix
+      #./vpn-configuration.nix
       ./cachix.nix
     ];
 
@@ -31,6 +33,7 @@
         experimental-features = nix-command flakes
     '';
   };
+
 
   # Disable automatic storage optimization (computer needs to be responsive at all times).
   # https://nixos.wiki/wiki/Storage_optimization
@@ -65,13 +68,6 @@
   # https://nixos.wiki/wiki/Flakes
   # https://mhwombat.codeberg.page/nix-book/
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # TODO https://github.com/ryantm/agenix
-  age.secrets.root-bashrc = {
-    file = ./secrets/root-bashrc.age;
-    path = "/root/.bashrc";
-    symlink = false;
-  };
 
   # https://github.com/obsidiansystems/obelisk/#installing-obelisk
   # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
@@ -187,128 +183,128 @@
 
   # List packages installed in system profile. To search, run:
   # `nix search wget`
-  environment.systemPackages = [
-    pkgs.appimage-run
-    pkgs.arandr
-    pkgs.ark
-    pkgs.bandwhich
-    pkgs.banner
-    pkgs.beep
-    pkgs.binutils-unwrapped
-    pkgs.bottom
-    pkgs.brotli
-    pkgs.btrfs-heatmap
-    pkgs.btrfs-progs
-    pkgs.cachix
-    pkgs.castnow
-    pkgs.ccache
-    pkgs.cdrkit
-    pkgs.chromium
-    pkgs.cifs-utils
-    pkgs.compsize
-    pkgs.cryptsetup
-    pkgs.darcs
-    pkgs.ddrescue
-    pkgs.dig
-    pkgs.digikam
-    pkgs.dmidecode
-    pkgs.dos2unix
-    pkgs.duperemove
-    pkgs.dvdbackup
-    pkgs.e2fsprogs
-    pkgs.entr
-    pkgs.eza
-    pkgs.exif
-    pkgs.exiv2
-    pkgs.fd
-    pkgs.file
-    pkgs.freetype
-    pkgs.git
-    pkgs.git-crypt
-    pkgs.git-lfs
-    pkgs.gitAndTools.gitRemoteGcrypt
-    pkgs.gitAndTools.tig
-    pkgs.gnumake
-    pkgs.gnupg
-    pkgs.hddtemp
-    pkgs.hdparm
-    pkgs.html-tidy
-    pkgs.htop
-    pkgs.hydra-check
-    pkgs.iotop
-    pkgs.killall
-    pkgs.lftp
-    pkgs.lm_sensors
-    pkgs.lshw
-    pkgs.lsof
-    pkgs.lsscsi
-    pkgs.lynis
-    pkgs.microcodeIntel
-    pkgs.mkvtoolnix
-    pkgs.mpack
-    pkgs.neofetch
-    pkgs.nix-index
-    pkgs.nix-prefetch-scripts
-    pkgs.nmap
-    pkgs.openh264
-    pkgs.openssl
-    pkgs.openvpn
-    pkgs.p7zip
-    pkgs.pass
-    pkgs.pavucontrol
-    pkgs.pciutils
-    pkgs.pkg-config
-    pkgs.pmutils
-    pkgs.procs
-    pkgs.psensor
-    pkgs.psmisc
-    pkgs.pstree
-    pkgs.pv
-    pkgs.ranger
-    pkgs.rclone
-    pkgs.rename
-    pkgs.restic
-    pkgs.rmlint
-    pkgs.safecopy
-    pkgs.screen
-    pkgs.scrot
-    pkgs.skim
-    pkgs.smartmontools
-    pkgs.smem
-    pkgs.smemstat
-    pkgs.snapper
-    pkgs.socat
-    pkgs.sutils
-    pkgs.sshfs
-    pkgs.sysstat
-    pkgs.tcpdump
-    pkgs.inetutils
-    pkgs.tree
-    pkgs.ums
-    pkgs.unzip
-    pkgs.usbutils
-    pkgs.vim
-    pkgs.virt-manager
-    pkgs.wf-recorder
-    pkgs.wget
-    pkgs.wirelesstools
-    pkgs.wmctrl
-    pkgs.wpa_supplicant
-    pkgs.xclip
-    pkgs.xdotool
-    pkgs.xlockmore
-    pkgs.xmobar
-    pkgs.xorg.xdpyinfo
-    pkgs.xorg.xev
-    pkgs.xorg.xeyes
-    pkgs.xorg.xhost
-    pkgs.xorg.xinit
-    pkgs.xorg.xkill
-    pkgs.xorg.xmessage
-    pkgs.xorg.xmodmap
-    pkgs.xorg.xwininfo
-    pkgs.xsane
-    pkgs.yara
+  environment.systemPackages = with pkgs; [
+    appimage-run
+    arandr
+    ark
+    bandwhich
+    banner
+    beep
+    binutils-unwrapped
+    bottom
+    brotli
+    btrfs-heatmap
+    btrfs-progs
+    cachix
+    castnow
+    ccache
+    cdrkit
+    chromium
+    cifs-utils
+    compsize
+    cryptsetup
+    darcs
+    ddrescue
+    dig
+    digikam
+    dmidecode
+    dos2unix
+    duperemove
+    dvdbackup
+    e2fsprogs
+    entr
+    eza
+    exif
+    exiv2
+    fd
+    file
+    freetype
+    git
+    git-crypt
+    git-lfs
+    gitAndTools.gitRemoteGcrypt
+    gitAndTools.tig
+    gnumake
+    gnupg
+    hddtemp
+    hdparm
+    html-tidy
+    htop
+    hydra-check
+    iotop
+    killall
+    lftp
+    lm_sensors
+    lshw
+    lsof
+    lsscsi
+    lynis
+    microcodeIntel
+    mkvtoolnix
+    mpack
+    neofetch
+    nix-index
+    nix-prefetch-scripts
+    nmap
+    openh264
+    openssl
+    openvpn
+    p7zip
+    pass
+    pavucontrol
+    pciutils
+    pkg-config
+    pmutils
+    procs
+    psensor
+    psmisc
+    pstree
+    pv
+    ranger
+    rclone
+    rename
+    restic
+    rmlint
+    safecopy
+    screen
+    scrot
+    skim
+    smartmontools
+    smem
+    smemstat
+    snapper
+    socat
+    sutils
+    sshfs
+    sysstat
+    tcpdump
+    inetutils
+    tree
+    ums
+    unzip
+    usbutils
+    vim
+    virt-manager
+    wf-recorder
+    wget
+    wirelesstools
+    wmctrl
+    wpa_supplicant
+    xclip
+    xdotool
+    xlockmore
+    xmobar
+    xorg.xdpyinfo
+    xorg.xev
+    xorg.xeyes
+    xorg.xhost
+    xorg.xinit
+    xorg.xkill
+    xorg.xmessage
+    xorg.xmodmap
+    xorg.xwininfo
+    xsane
+    yara
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
@@ -450,13 +446,24 @@
     #desktopManager.plasma5.enable = true;
 
     # Enable xmonad tiling window manager.
-    windowManager.xmonad = {
+    #windowManager.xmonad = {
+    #  enable = true;
+    #  enableContribAndExtras = true;
+    #  extraPackages = haskellPackages: [
+    #    haskellPackages.xmonad-contrib
+    #    haskellPackages.xmonad-extras
+    #    haskellPackages.xmonad
+    #  ];
+    #};
+
+    # Enable i3 tiling window manager.
+    windowManager.i3 = {
       enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        i3blocks
       ];
     };
 
@@ -464,14 +471,13 @@
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
     displayManager.lightdm.enable = true;
     #displayManager.defaultSession = "none+xmonad";
+    displayManager.defaultSession = "none+i3";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
     #  xmodmap /path/to/.Xmodmap
     #  '';
   };
-
-  services.displayManager.defaultSession = "none+xmonad";
 
  # https://nixos.wiki/wiki/Fonts
   fonts.packages = with pkgs; [

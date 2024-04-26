@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: $0 <connection-name>";
+  echo "";
+  nmcli device status
+  echo ""
+  nmcli c;
+  exit 1
+fi
+
+CONNECTION="$1"
+
+echo "Wired (with password)";
+nmcli r wired enable
+nmcli c up "${CONNECTION}" passwd-file ~/.wiredpasswd

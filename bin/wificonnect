@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: $0 <connection-name>";
+  echo "";
+  nmcli device status
+  echo ""
+  nmcli c;
+  exit 1
+fi
+
+CONNECTION="$1"
+
+echo "WiFi (with password)";
+#nmcli r wifi enable
+nmcli r wifi on
+nmcli c up "${CONNECTION}" passwd-file ~/.wifipasswd
