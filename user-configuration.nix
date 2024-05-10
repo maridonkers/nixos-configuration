@@ -46,6 +46,7 @@
       pkgs.docker
       pkgs.docker-compose
       pkgs-unstable.emacs
+      pkgs.ecl
       pkgs.exif
       pkgs.exiv2
       pkgs.feh
@@ -56,9 +57,11 @@
       pkgs.freecad
       pkgs.freetube
       pkgs.fzf
+      pkgs.gambit
       pkgs.gcc_multi
+      pkgs.gerbil
       #pkgs.ghc
-      #pkgs.gimp-with-plugins # broken
+      pkgs.gimp-with-plugins
       pkgs.go
       pkgs.graphviz
       pkgs.handbrake

@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# Attempt sudo nmtui from regular account first and use lynx to access network connection server.
+#
 
 if [ $# -lt 1 ]
 then
