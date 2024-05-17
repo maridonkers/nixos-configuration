@@ -21,8 +21,10 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 80 445 139 3443 4100 58050 ];
-  networking.firewall.allowedUDPPorts = [ 137 138 ];
+  #networking.firewall.allowedTCPPorts = [ 22 80 445 139 3443 4100 8080 58050 ];
+  networking.firewall.allowedTCPPorts = [ 22 8080 ];
+  #networking.firewall.allowedUDPPorts = [ 137 138 ];
+  networking.firewall.allowedUDPPorts = [ ];
   #networking.firewall.allowedTCPPorts = [ 22 ];
   #networking.firewall.allowedUDPPorts = [ ];
   networking.firewall.enable = true;
