@@ -42,6 +42,7 @@
       pkgs.dbmate
       pkgs.dict
       pkgs.digikam
+      pkgs.dillo
       pkgs.direnv
       pkgs.docker
       pkgs.docker-compose
@@ -110,6 +111,7 @@
       pkgs.neovim-qt
       pkgs.nomacs
       pkgs.notmuch
+      pkgs.nyxt
       pkgs.offlineimap
       pkgs.okular
       pkgs.ookla-speedtest
@@ -147,7 +149,7 @@
       #pkgs.vivaldi-ffmpeg-codecs
       pkgs.vlc
       pkgs.vym
-      pkgs.wapm-cli
+      #pkgs.wapm-cli # 24.05 missing package
       pkgs.wasmer
       pkgs.wcalc
       pkgs.weather

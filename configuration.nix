@@ -412,7 +412,7 @@
   programs.adb.enable = true;
 
   # Enable touchpad support by default.
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Compositor (supposedly fixes screen tearing).
   # services.compton.enable = true;
@@ -470,8 +470,6 @@
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
     displayManager.lightdm.enable = true;
-    #displayManager.defaultSession = "none+xmonad";
-    displayManager.defaultSession = "none+i3";
 
     #displayManager.sessionCommands = with pkgs; lib.mkAfter
     #  ''
@@ -479,6 +477,9 @@
     #  '';
   };
 
+  #services.displayManager.defaultSession = "none+xmonad";
+  services.displayManager.defaultSession = "none+i3";
+  
  # https://nixos.wiki/wiki/Fonts
   fonts.packages = with pkgs; [
     hack-font
