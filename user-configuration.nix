@@ -50,6 +50,7 @@
       pkgs.ecl
       pkgs.exif
       pkgs.exiv2
+      pkgs.falkon
       pkgs.feh
       pkgs.ffmpeg
       pkgs.figlet

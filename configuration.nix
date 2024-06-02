@@ -304,6 +304,7 @@
     xorg.xmodmap
     xorg.xwininfo
     xsane
+    xsel
     yara
   ];
 
