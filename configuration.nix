@@ -233,6 +233,8 @@
     hydra-check
     iotop
     killall
+    kodi
+    kodi-cli
     lftp
     lm_sensors
     lshw
