@@ -232,9 +232,9 @@
     htop
     hydra-check
     iotop
+    jellyfin
+    jellycli
     killall
-    kodi
-    kodi-cli
     lftp
     lm_sensors
     lshw

@@ -80,6 +80,7 @@
       pkgs.python310Packages.ipython 
       pkgs.irccloud
       pkgs.isync
+      pkgs.jellyfin-media-player
       pkgs.jp2a
       pkgs.jq
       pkgs.jujutsu
