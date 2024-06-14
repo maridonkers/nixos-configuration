@@ -136,7 +136,7 @@
       pkgs.slrn
       pkgs.sourceHighlight
       pkgs.sqlite
-      pkgs.stack
+      #pkgs.stack
       pkgs.subdl
       pkgs.subtitleeditor
       pkgs.texliveMinimal
