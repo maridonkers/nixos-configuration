@@ -115,10 +115,12 @@
       pkgs.nyxt
       pkgs.offlineimap
       pkgs.okular
+      pkgs.ollama
       pkgs.ookla-speedtest
       pkgs.opencascade-occt
       pkgs.openscad
       pkgs.opera
+      pkgs.oterm
       pkgs.pandoc
       pkgs.paperwork
       pkgs.par
