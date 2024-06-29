@@ -22,7 +22,7 @@
 
   # Open ports in the firewall.
   #networking.firewall.allowedTCPPorts = [ 22 80 445 139 3443 4100 8080 58050 ];
-  networking.firewall.allowedTCPPorts = [ 22 1234 8080 8096 ];
+  networking.firewall.allowedTCPPorts = [ 22 1234 3333 8080 8096 ];
   #networking.firewall.allowedUDPPorts = [ 137 138 ];
   networking.firewall.allowedUDPPorts = [ 1234 ];
   #networking.firewall.allowedTCPPorts = [ 22 ];
