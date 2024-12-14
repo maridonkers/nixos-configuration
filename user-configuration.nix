@@ -46,7 +46,8 @@
       pkgs.direnv
       pkgs.docker
       pkgs.docker-compose
-      pkgs-unstable.emacs
+      #pkgs-unstable.emacs
+      pkgs.emacs
       pkgs.ecl
       pkgs.exif
       pkgs.exiv2
@@ -129,7 +130,8 @@
       pkgs.plantuml-c4
       pkgs.poppler_utils
       pkgs.python3
-      pkgs-unstable.racket
+      #pkgs-unstable.racket
+      pkgs.racket
       pkgs.rawtherapee
       pkgs.ripgrep
       pkgs.rustup
