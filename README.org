@@ -1,4 +1,4 @@
-Also see the blog post: [[https://photonsphere.org/posts/2020-02-19-nixos-configuration.html][My NixOS configuration]].
+Also see the blog post: [[https://photonsphere.org/post/2020-02-19-nixos-configuration/][My NixOS configuration]].
 
 Flaked up; useful commands:
 
