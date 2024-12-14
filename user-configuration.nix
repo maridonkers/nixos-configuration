@@ -60,7 +60,7 @@
       pkgs.fzf
       pkgs.gambit
       pkgs.gcc_multi
-      pkgs.gerbil
+      #pkgs.gerbil
       #pkgs.ghc
       pkgs.gimp-with-plugins
       pkgs.go
@@ -119,7 +119,7 @@
       pkgs.ookla-speedtest
       pkgs.opencascade-occt
       pkgs.openscad
-      pkgs.opera
+      #pkgs.opera
       pkgs.oterm
       pkgs.pandoc
       pkgs.paperwork

@@ -6,7 +6,7 @@
   description = "flake for sapientia";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     # Latest stable branch of nixpkgs, used for version rollback.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";

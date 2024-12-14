@@ -28,7 +28,8 @@
 
   # nixos-rebuild --flake .#sapientia switch
   nix = {
-    package = pkgs.nixFlakes;
+    #package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = ''
         experimental-features = nix-command flakes
     '';
@@ -187,7 +188,7 @@
     pkgs.appimage-run
     pkgs.arandr
     pkgs.ark
-    pkgs.bandwhich
+    #pkgs.bandwhich
     pkgs.banner
     pkgs.beep
     pkgs.binutils-unwrapped
@@ -196,7 +197,7 @@
     pkgs.btrfs-heatmap
     pkgs.btrfs-progs
     pkgs.cachix
-    pkgs.castnow
+    #pkgs.castnow
     pkgs.ccache
     pkgs.cdrkit
     pkgs.chromium
@@ -258,7 +259,7 @@
     #pkgs-unstable.pkg-config
     pkgs.pmutils
     pkgs.procs
-    pkgs.psensor
+    # pkgs.psensor # 24.11 removed because unmaintained
     pkgs.psmisc
     pkgs.pstree
     pkgs.pv
@@ -368,22 +369,23 @@
   hardware.sane.extraBackends = with pkgs; [ hplipWithPlugin ];
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
-  };
+  #sound.enable = true;
+  #hardware.pulseaudio = {
+  #  enable = true;
+  #  support32Bit = true;
+  #};
 
   # Disable Bluetooth (my notebook doesn't have it).
   hardware.bluetooth.enable = false;
   
   # OpenGL configuration.
   # https://discourse.nixos.org/t/trouble-getting-hardware-video-decoding-in-chrome-based-browsers-with-amd-gpu/25206/6
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  hardware.graphics.enable = true;
+  #hardware.opengl = {
+    #enable = true;
+    #driSupport = true;
+    #driSupport32Bit = true;
+  #};
 
   # Enable Redshift.
   #services.redshift = {
@@ -449,26 +451,28 @@
     #desktopManager.plasma5.enable = true;
 
     # Enable xmonad tiling window manager.
-    #windowManager.xmonad = {
-    #  enable = true;
-    #  enableContribAndExtras = true;
-    #  extraPackages = haskellPackages: [
-    #    haskellPackages.xmonad-contrib
-    #    haskellPackages.xmonad-extras
-    #    haskellPackages.xmonad
-    #  ];
-    #};
-
-    # Enable i3 tiling window manager.
-    windowManager.i3 = {
+    windowManager.xmonad = {
       enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-        i3blocks
+      enableContribAndExtras = true;
+      #config = builtins.readFile /etc/nixos/xmonad/xmonad.hs
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
       ];
     };
+
+
+    # Enable i3 tiling window manager.
+    #windowManager.i3 = {
+    #  enable = true;
+    #  extraPackages = with pkgs; [
+    #    dmenu
+    #    i3status
+    #    i3lock
+    #    i3blocks
+    #  ];
+    #};
 
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     #displayManager.startx.enable = true; # BEWARE: lightdm doesn't start with this enabled.
@@ -479,15 +483,15 @@
     #  xmodmap /path/to/.Xmodmap
     #  '';
   };
-
   #services.displayManager.defaultSession = "none+xmonad";
-  services.displayManager.defaultSession = "none+i3";
+  #services.displayManager.defaultSession = "none+i3";
+  services.displayManager.defaultSession = "none+xmonad";
   
  # https://nixos.wiki/wiki/Fonts
   fonts.packages = with pkgs; [
     hack-font
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     google-fonts
  #   liberation_ttf
@@ -502,5 +506,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
