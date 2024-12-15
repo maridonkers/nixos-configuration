@@ -113,8 +113,8 @@
       pkgs.neovim-qt
       pkgs.nomacs
       pkgs.notmuch
-      pkgs.nyxt
-      pkgs.offlineimap
+      #pkgs.nyxt
+      #pkgs.offlineimap
       pkgs.okular
       pkgs.ollama
       pkgs.ookla-speedtest
