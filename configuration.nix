@@ -74,6 +74,9 @@
   # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
   # nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
+  # Enable slock with suid set.
+  programs.slock.enable = true;
+
   # https://github.com/Mic92/nix-ld
   programs.nix-ld.enable = true;
 
@@ -296,7 +299,6 @@
     pkgs.wpa_supplicant
     pkgs.xclip
     pkgs.xdotool
-    #pkgs.xlockmore
     pkgs.xmobar
     pkgs.xorg.xdpyinfo
     pkgs.xorg.xev
