@@ -15,7 +15,7 @@
       # pkgs.android-studio # broken?
       pkgs.android-file-transfer
       pkgs.apktool
-      pkgs.appimage-run
+      #pkgs.appimage-run
       pkgs.aria
       pkgs.ascii
       pkgs.aspellDicts.en
@@ -59,7 +59,7 @@
       pkgs.freecad
       pkgs.freetube
       pkgs.fzf
-      pkgs.gambit
+      #pkgs.gambit
       pkgs.gcc_multi
       #pkgs.gerbil
       #pkgs.ghc
@@ -131,7 +131,7 @@
       pkgs.poppler_utils
       pkgs.python3
       #pkgs-unstable.racket
-      pkgs.racket
+      #pkgs.racket
       pkgs.rawtherapee
       pkgs.ripgrep
       pkgs.rustup
@@ -143,6 +143,7 @@
       #pkgs.stack
       pkgs.subdl
       pkgs.subtitleeditor
+      pkgs.sweethome3d.application
       pkgs.texliveMinimal
       pkgs.thunderbird
       pkgs.tokei

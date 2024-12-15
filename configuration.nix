@@ -98,7 +98,7 @@
     libappindicator-gtk3
     libdrm
     libnotify
-    libpulseaudio
+    #libpulseaudio
     libuuid
     libusb1
     xorg.libxcb
@@ -185,7 +185,7 @@
   # List packages installed in system profile. To search, run:
   # `nix search wget`
   environment.systemPackages = [
-    pkgs.appimage-run
+    #pkgs.appimage-run
     pkgs.arandr
     pkgs.ark
     #pkgs.bandwhich
@@ -288,6 +288,7 @@
     pkgs.usbutils
     pkgs.vim
     pkgs.virt-manager
+    pkgs.w3m
     pkgs.wf-recorder
     pkgs.wget
     pkgs.wirelesstools
@@ -295,7 +296,7 @@
     pkgs.wpa_supplicant
     pkgs.xclip
     pkgs.xdotool
-    pkgs.xlockmore
+    #pkgs.xlockmore
     pkgs.xmobar
     pkgs.xorg.xdpyinfo
     pkgs.xorg.xev
