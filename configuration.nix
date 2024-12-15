@@ -316,6 +316,8 @@
   #    "ffmpeg-2.8.17"
   #];
 
+  # Enable nix-direnv
+  programs.direnv.enable = true;
 
   services.fwupd.enable = true;
   # fwupdmgr[231212]: WARNING: UEFI firmware can not be updated in legacy BIOS mode

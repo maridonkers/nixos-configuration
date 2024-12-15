@@ -17,7 +17,8 @@ in
     FREETYPE_PROPERTIES = "truetype:interpreter-version=38";
   };
 
-  environment.interactiveShellInit = ''
+  # environment.interactiveShellInit = ''
+  environment.loginShellInit = ''
     #alias config='git --git-dir=/home/mdo/.cfg/ --work-tree=/home/mdo'
   '' + envVars;
 }

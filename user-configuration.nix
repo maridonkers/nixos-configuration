@@ -43,7 +43,7 @@
       pkgs.dict
       pkgs.digikam
       pkgs.dillo
-      pkgs.direnv
+      #pkgs.direnv # see programs.direnv.enable
       pkgs.docker
       pkgs.docker-compose
       #pkgs-unstable.emacs
