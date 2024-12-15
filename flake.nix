@@ -1,5 +1,6 @@
 # https://drakerossman.com/blog/how-to-convert-default-nixos-to-nixos-with-flakes
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/downgrade-or-upgrade-packages
+# https://discourse.nixos.org/t/flakes-vs-channels-guides-and-clarification/29804
 #
 
 {

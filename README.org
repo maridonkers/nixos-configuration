@@ -2,7 +2,9 @@ Also see the blog post: [[https://photonsphere.org/post/2020-02-19-nixos-configu
 
 Flaked up; useful commands:
 
+#+BEGIN_SRC sh
 alias swi='( cd /etc/nixos; nixos-rebuild --flake .#sapientia switch ) && ~/bin/nixos-checkreboot.sh ; date'
 alias swi-dry-activate='( cd /etc/nixos; nixos-rebuild --flake .#sapientia dry-activate )'
 alias swi-dry-build='( cd /etc/nixos; nixos-rebuild --flake .#sapientia dry-build )'
 alias upg='( cd /etc/nixos; nix flake update) ; date'
+#+END_SRC
