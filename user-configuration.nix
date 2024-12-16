@@ -42,7 +42,6 @@
       pkgs.dbmate
       pkgs.dict
       pkgs.digikam
-      pkgs.dillo
       #pkgs.direnv # see programs.direnv.enable
       pkgs.docker
       pkgs.docker-compose
@@ -91,18 +90,17 @@
       pkgs.kdenlive
       pkgs.kdiff3
       pkgs.keepassxc
-      pkgs.kismet
+      #pkgs.kismet
       pkgs.koreader
       pkgs.lazygit
       pkgs.ledger
       pkgs.librecad
       pkgs.libreoffice
       pkgs.librewolf
-      pkgs.libstemmer
       pkgs.lynx
       pkgs.mdcat
       pkgs.mercurial
-      pkgs.metasploit
+      #pkgs.metasploit
       pkgs.mkvtoolnix
       pkgs.mpv
       pkgs.mpvScripts.sponsorblock

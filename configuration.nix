@@ -406,6 +406,9 @@
   #};
   location.provider = "geoclue2";
 
+  # Enable the grim reaper.
+  services.xserver.enableCtrlAltBackspace = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.xkb.layout = "us"; 
