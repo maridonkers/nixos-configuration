@@ -9,6 +9,12 @@
 # https://status.nixos.org/
 # https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488
 #
+# Command examples:
+# o nix flake update
+# o nixos-rebuild --flake .#sapientia switch 
+# o nixos-rebuild --flake .#sapientia dry-activate
+# o nixos-rebuild --flake .#sapientia dry-build
+#
 
 { config, pkgs, pkgs-unstable, ... }:
 
@@ -35,7 +41,6 @@
     '';
   };
 
-
   # Disable automatic storage optimization (computer needs to be responsive at all times).
   # https://nixos.wiki/wiki/Storage_optimization
   #nix.gc = {
@@ -59,7 +64,6 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  #boot.loader.grub.device = "/dev/disk/by-id/ata-WDC_WD5000BEKT-60KA9T0_WD-WXG1AA0N9929"; # or "nodev" for efi only
   boot.loader.grub.device = "/dev/disk/by-id/ata-TOSHIBA_MQ01ABD050V_Z4K5SACFS"; # or "nodev" for efi only
   # boot.loader.grub.extraConfig = "terminal_input_console terminal_output_console";
   
@@ -73,9 +77,6 @@
   # https://github.com/obsidiansystems/obelisk/#installing-obelisk
   # nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
   # nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
-
-  # Enable slock with suid set.
-  programs.slock.enable = true;
 
   # https://github.com/Mic92/nix-ld
   programs.nix-ld.enable = true;
@@ -146,19 +147,19 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
-  # Docker host. The --iptables=false makes sure that Docker doesn't alter
-  # the firewall (as a default containers should no be accessible from outside).
-  #
+  # Virtualization functionality.
   virtualisation =  {
+    # Android emulator - https://nixos.wiki/wiki/WayDroid
+    #waydroid.enable = true; # requires Wayland... (I use X)
+
+    # Docker host. The --iptables=false makes sure that Docker doesn't alter
+    # the firewall (as a default containers should no be accessible from outside).
     docker = {
       enable = true;
       autoPrune.enable = true;
       storageDriver = "overlay2";
       #extraOptions = "--iptables=false";
     };
-
-    # To be able to run Android applications.
-    #anbox.enable = true; #  TODO anbox broken in 21.05
 
     libvirtd.enable = true;
   };
@@ -420,6 +421,9 @@
 
   # Legacy video driver for NVIDIA GeForce 335M (?) support.
   #services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
+
+  # Enable slock with suid set.
+  programs.slock.enable = true;
 
   # https://nixos.wiki/wiki/Android
   programs.adb.enable = true;

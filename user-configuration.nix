@@ -149,8 +149,8 @@
       pkgs.translate-shell
       pkgs.urlscan
       pkgs.virt-manager
-      #pkgs.vivaldi
-      #pkgs.vivaldi-ffmpeg-codecs
+      pkgs.vivaldi
+      pkgs.vivaldi-ffmpeg-codecs
       pkgs.vlc
       pkgs.vym
       #pkgs.wapm-cli # 24.05 missing package
