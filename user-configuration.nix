@@ -142,7 +142,7 @@
       pkgs.subdl
       pkgs.subtitleeditor
       pkgs.sweethome3d.application
-      pkgs.texliveMinimal
+      pkgs.texliveFull
       pkgs.thunderbird
       pkgs.tokei
       pkgs.tor-browser-bundle-bin
