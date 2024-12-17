@@ -24,7 +24,7 @@
   #networking.firewall.allowedTCPPorts = [ 22 80 445 139 3443 4100 8080 58050 ];
   networking.firewall.allowedTCPPorts = [ 22 1234 3333 8080 8096 ];
   #networking.firewall.allowedUDPPorts = [ 137 138 ];
-  networking.firewall.allowedUDPPorts = [ 1234 ];
+  networking.firewall.allowedUDPPorts = [ 1234 8096 ];
   #networking.firewall.allowedTCPPorts = [ 22 ];
   #networking.firewall.allowedUDPPorts = [ ];
   networking.firewall.enable = true;
@@ -41,6 +41,17 @@
   networking.useDHCP = false;
   networking.interfaces.ens5.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
+
+  # Enable Jellyfin server
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
 
   # https://github.com/NixOS/nixpkgs/issues/49630
   # (the suggested --load-media-router-component-extension=1 appears to be no longer required.)

@@ -176,7 +176,7 @@
   };
 
   console = {
-    font = "Lat2-Terminus16";
+    font = "Lat1-Terminus16";
     keyMap = "us";
   };
 
@@ -237,8 +237,6 @@
     pkgs.htop
     pkgs.hydra-check
     pkgs.iotop
-    pkgs.jellyfin
-    pkgs.jellycli
     pkgs.killall
     pkgs.lftp
     pkgs.lm_sensors
@@ -293,7 +291,6 @@
     pkgs.vim
     pkgs.virt-manager
     pkgs.w3m
-    pkgs.wf-recorder
     pkgs.wget
     pkgs.wirelesstools
     pkgs.wmctrl
@@ -312,7 +309,7 @@
     pkgs.xorg.xwininfo
     pkgs.xsane
     pkgs.xsel
-    pkgs.yara
+    pkgs.zip
   ];
 
   #nixpkgs.config.permittedInsecurePackages = [
