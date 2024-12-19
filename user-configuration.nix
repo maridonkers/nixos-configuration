@@ -157,6 +157,7 @@
       #pkgs.wapm-cli # 24.05 missing package
       pkgs.wasmer
       pkgs.wcalc
+      pkgs.whatsie
       pkgs.weather
       #pkgs.wine
       #pkgs.winetricks
