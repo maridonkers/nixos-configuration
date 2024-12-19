@@ -198,6 +198,7 @@
     pkgs.binutils-unwrapped
     pkgs.bottom
     pkgs.brotli
+    pkgs.btrfs-assistant
     pkgs.btrfs-heatmap
     pkgs.btrfs-progs
     pkgs.cachix
@@ -290,6 +291,7 @@
     pkgs.usbutils
     pkgs.vim
     pkgs.virt-manager
+    pkgs.vulnix
     pkgs.w3m
     pkgs.wget
     pkgs.wirelesstools
