@@ -21,19 +21,9 @@
   };
 
   # Open ports in the firewall.
-  #networking.firewall.allowedTCPPorts = [ 22 80 445 139 3443 4100 8080 58050 ];
   networking.firewall.allowedTCPPorts = [ 22 1234 3333 8080 8096 ];
-  #networking.firewall.allowedUDPPorts = [ 137 138 ];
   networking.firewall.allowedUDPPorts = [ 1234 8096 ];
-  #networking.firewall.allowedTCPPorts = [ 22 ];
-  #networking.firewall.allowedUDPPorts = [ ];
   networking.firewall.enable = true;
-
-  # minidlna service
-  #services.minidlna.enable = true;
-  #services.minidlna.announceInterval = 60;
-  #services.minidlna.friendlyName = "Laptop";
-  #services.minidlna.mediaDirs = ["V,/home/mdo/Movies/" "V,/run/media/mdo/"];
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -52,21 +42,5 @@
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
   ];
-
-  # https://github.com/NixOS/nixpkgs/issues/49630
-  # (the suggested --load-media-router-component-extension=1 appears to be no longer required.)
-  #services.avahi.enable = true; # see above
-
-  #services.openvpn.servers = {
-  #  us1  = {
-  #    config = '' config /root/vpn/us1-mdonkers.ovpn '';
-  #  };
-  #  us2  = {
-  #    config = '' config /root/vpn/us2-mdonkers.ovpn '';
-  #  };
-
-    #homeVPN    = { config = '' config /root/nixos/openvpn/homeVPN.conf ''; };
-    #serverVPN  = { config = '' config /root/nixos/openvpn/serverVPN.conf ''; };
-  #};
 }
 
