@@ -23,8 +23,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./fs-configuration.nix
-      #./travel-network-configuration.nix
-      ./home-network-configuration.nix
+      ./network-configuration.nix
       ./user-configuration.nix
       ./env-configuration.nix
       #./vpn-configuration.nix
