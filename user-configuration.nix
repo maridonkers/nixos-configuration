@@ -110,6 +110,7 @@
       pkgs.mutt
       pkgs.neovim
       pkgs.neovim-qt
+      pkgs.netsurf.browser
       pkgs.nomacs
       pkgs.notmuch
       #pkgs.nyxt
