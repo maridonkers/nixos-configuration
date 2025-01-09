@@ -34,7 +34,7 @@
 
   # Enable Jellyfin server
   services.jellyfin = {
-    enable = true;
+    enable = false; # Check if this is better started manually (only when used)
 
     # HOME
     # openFirewall = true;
