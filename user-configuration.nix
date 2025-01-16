@@ -12,6 +12,7 @@
     packages = 
     [
       pkgs.aegisub
+      pkgs.aichat
       # pkgs.android-studio # broken?
       pkgs.android-file-transfer
       pkgs.apktool

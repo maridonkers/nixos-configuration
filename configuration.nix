@@ -138,7 +138,8 @@
   # Disable automatic refresh of ClamAV signatures database (do this manually).
   services.clamav = {
     # daemon.enable = true;
-    updater.enable = true;
+    #updater.enable = true;
+    updater.enable = false;
   };
 
   # Configure network proxy if necessary
