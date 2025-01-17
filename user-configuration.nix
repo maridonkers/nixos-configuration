@@ -104,6 +104,7 @@
       pkgs.mercurial
       #pkgs.metasploit
       pkgs.mkvtoolnix
+      pkgs.mp3gain
       pkgs.mpv
       pkgs.mpvScripts.sponsorblock
       pkgs.mpvScripts.quality-menu
@@ -159,7 +160,6 @@
       #pkgs.wapm-cli # 24.05 missing package
       pkgs.wasmer
       pkgs.wcalc
-      pkgs.whatsie
       pkgs.weather
       #pkgs.wine
       #pkgs.winetricks
