@@ -175,7 +175,7 @@
   };
 
   console = {
-    font = "Lat1-Terminus16";
+    # font = "Lat1-Terminus16";
     keyMap = "us";
   };
 

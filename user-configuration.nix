@@ -122,7 +122,7 @@
       pkgs.ookla-speedtest
       pkgs.opencascade-occt
       pkgs.openscad
-      #pkgs.opera
+      pkgs.opera
       pkgs.oterm
       pkgs.pandoc
       pkgs.paperwork
