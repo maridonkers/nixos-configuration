@@ -96,6 +96,7 @@
     gdk-pixbuf
     glib
     gtk3
+    inotify-tools
     libGL
     libappindicator-gtk3
     libdrm
@@ -204,7 +205,6 @@
     #pkgs.castnow
     pkgs.ccache
     pkgs.cdrkit
-    pkgs.chromium
     pkgs.cifs-utils
     pkgs.compsize
     pkgs.cryptsetup

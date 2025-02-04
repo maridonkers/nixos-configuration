@@ -32,6 +32,11 @@
   networking.interfaces.ens5.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
 
+  # Additional hosts
+  #networking.hosts = {
+  #  "###.###.###.###" = [ "domain.tld" ];
+  #};
+
   # Enable Jellyfin server
   services.jellyfin = {
     enable = true;

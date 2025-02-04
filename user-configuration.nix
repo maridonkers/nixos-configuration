@@ -98,7 +98,7 @@
       pkgs.ledger
       pkgs.librecad
       pkgs.libreoffice
-      pkgs.librewolf
+      #pkgs.librewolf
       pkgs.lynx
       pkgs.mdcat
       pkgs.mercurial
@@ -176,8 +176,8 @@
 
     packages = 
     [
+      pkgs.chromium
       pkgs.libreoffice
-      pkgs.librewolf
     ]; 
   };
 
