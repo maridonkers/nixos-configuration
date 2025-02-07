@@ -49,6 +49,8 @@
       #pkgs-unstable.emacs
       pkgs.emacs
       pkgs.ecl
+      #pkgs-unstable.elixir
+      #pkgs-unstable.erlang
       pkgs.exif
       pkgs.exiv2
       pkgs.feh
